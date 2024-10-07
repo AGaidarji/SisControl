@@ -10,4 +10,5 @@
 #    * leitor
 
 # Necessário informações de produtos    
-#     * Campos: cdProd; nmProd; qtProd; 
+#     * Campos: cdProd; nmProd; qtProd; imProd
+# https://www.google.com/search?q=como+colocar+imagem+em+bd+sql&oq=como+colocar+imagem+em+bd+sql&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRifBTIHCAIQIRifBTIHCAMQIRifBTIHCAQQIRifBTIHCAUQIRifBTIHCAYQIRifBTIHCAcQIRifBTIHCAgQIRifBdIBCTExODg3ajBqMagCALACAA&sourceid=chrome&ie=UTF-8
