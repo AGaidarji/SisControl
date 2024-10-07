@@ -8,3 +8,6 @@
 #    * admin
 #    * editor
 #    * leitor
+
+# Necessário informações de produtos    
+#     * Campos: cdProd; nmProd; qtProd; 
