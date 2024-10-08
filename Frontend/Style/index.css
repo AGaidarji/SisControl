@@ -1,11 +1,74 @@
-.form {
-    display: none;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #264257; /* Fundo da página */
+    color: #88A9C3; /* Cor do texto */
+    padding: 20px;
+    text-align: center;
 }
 
+/* Estilo dos botões */
+button {
+    background-color: #091235; /* Fundo dos botões */
+    color: #88A9C3; /* Texto dos botões */
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #88A9C3; /* Cor ao passar o mouse */
+    color: #091235;
+}
+
+/* Estilo do formulário */
+.form {
+    background-color: #14202E; /* Fundo do formulário */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 20px auto;
+    display: none; /* Inicialmente escondido */
+}
+
+/* Estilo dos campos do formulário */
 .campo_form {
     display: block;
+    width: 94%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #264257;
+    border-radius: 5px;
+    background-color: #091235;
+    color: #88A9C3;
+    font-size: 16px;
 }
 
-button {
+select.campo_form {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #264257;
+    border-radius: 5px;
+    background-color: #091235;
+    color: #88A9C3;
+    font-size: 16px;
+}
+
+/* Estilo do botão enviar */
+#submit {
+    background-color: #264257;
+    color: #88A9C3;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
     cursor: pointer;
+}
+
+#submit:hover {
+    background-color: #14202E;
 }

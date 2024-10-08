@@ -1,15 +1,42 @@
-const cadastrarItemButton = document.getElementById('cadastrarItem');
-const form = document.getElementById('userForm');
+const cadastrarButton = document.getElementById('cadastrarItem');
+const soliticarButton = document.getElementById('solicitarItem');
+const pesquisarButton = document.getElementById('pesquisarItem');
 
-cadastrarItemButton.addEventListener('click', function() {
-    if (form.style.display === 'none' || form.style.display === '') {
-        form.style.display = 'block';
+const formCadastro = document.getElementById('formCadastrar');
+const formSolicitar = document.getElementById('formSolicitar');
+const formPesquisar = document.getElementById('formPesquisar');
+
+cadastrarButton.addEventListener('click', function() {
+    if (formCadastro.style.display === 'none' || formCadastro.style.display === '') {
+        formCadastro.style.display = 'block';
+        formSolicitar.style.display = 'none';
+        formPesquisar.style.display = 'none';
     } else {
-        form.style.display = 'none';
+        formCadastro.style.display = 'none';
     }
 })
 
-document.getElementById('userForm').addEventListener('submit', async function (event) {
+soliticarButton.addEventListener('click', function() {
+    if (formSolicitar.style.display === 'none' || formSolicitar.style.display === '') {
+        formSolicitar.style.display = 'block';
+        formCadastro.style.display = 'none';
+        formPesquisar.style.display = 'none';
+    } else {
+        formSolicitar.style.display = 'none';
+    }
+})
+
+pesquisarButton.addEventListener('click', function() {
+    if (formPesquisar.style.display === 'none' || formPesquisar.style.display === '') {
+        formPesquisar.style.display = 'block';
+        formCadastro.style.display = 'none';
+        formSolicitar.style.display = 'none';
+    } else {
+        formPesquisar.style.display = 'none';
+    }
+})
+
+document.getElementById('formCadastrar').addEventListener('submit', async function (event) {
     event.preventDefault();
 
     const name = document.getElementById('name').value;
