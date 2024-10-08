@@ -1,0 +1,11 @@
+.form {
+    display: none;
+}
+
+.campo_form {
+    display: block;
+}
+
+button {
+    cursor: pointer;
+}

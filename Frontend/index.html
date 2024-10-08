@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style/index.css">
+    <title>SisControl</title>
+</head>
+<body>
+    <button id="cadastrarItem">Cadastrar novo item</button>
+    <button id="solicitarItem">Solicitar item</button>
+    <button id="pesquisarItem">Pesquisar item</button>
+
+    <form id="userForm" class="form">
+        <div>
+            <input type="text" id="name" placeholder="Nome Item" class="campo_form" required>
+        </div>
+        <div>
+            <input type="number" id="quantidade" placeholder="Quantidade" class="campo_form" required>
+        </div>
+        <div>
+            <input type="text" id="description" placeholder="Descrição" class="campo_form">
+        </div>
+        <div>
+            <button id="submit" class="campo_form">Enviar</button>
+        </div>
+    </form>
+
+    <script src="./Script/index.js"></script>
+</body>
+</html>
