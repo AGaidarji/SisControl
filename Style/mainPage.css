@@ -10,6 +10,7 @@ body {
 button {
     background-color: #091235; /* Fundo dos botões */
     color: #88A9C3; /* Texto dos botões */
+    border: none;
     padding: 10px 20px;
     margin: 10px;
     border-radius: 5px;
@@ -29,12 +30,25 @@ button:hover {
     border-radius: 10px;
     max-width: 400px;
     margin: 20px auto;
-    display: block;
+    display: none; /* Inicialmente escondido */
 }
 
+/* Estilo dos campos do formulário */
 .campo_form {
     display: block;
     width: 94%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #264257;
+    border-radius: 5px;
+    background-color: #091235;
+    color: #88A9C3;
+    font-size: 16px;
+}
+
+select.campo_form {
+    display: block;
+    width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 2px solid #264257;
@@ -57,22 +71,4 @@ button:hover {
 
 #submit:hover {
     background-color: #14202E;
-}
-
-.botao_cadastro {
-    text-decoration: none;
-    background-color: #264257;
-    color: #88A9C3;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: 200;
-    cursor: pointer;
-}
-
-.botao_cadastro:hover {
-    transition: background-color 0.3s ease;
-    background-color: #88A9C3;
-    color: #091235;
 }

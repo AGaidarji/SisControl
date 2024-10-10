@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style/mainPage.css">
+    <title>SisControl - Main Page</title>
+</head>
+<body>
+    <button id="cadastrarItem">Cadastrar novo item</button>
+    <button id="solicitarItem">Solicitar item</button>
+    <button id="pesquisarItem">Pesquisar item</button>
+
+    <form id="formCadastrar" class="form">
+        <div>
+            <input type="text" id="name" placeholder="Nome Item" class="campo_form" required>
+        </div>
+        <div>
+            <input type="number" id="quantidade" placeholder="Quantidade" class="campo_form" required>
+        </div>
+        <div>
+            <input type="text" id="description" placeholder="Descrição" class="campo_form">
+        </div>
+        <div>
+            <button id="submit" class="campo_form">Enviar</button>
+        </div>
+    </form>
+
+    <form id="formSolicitar" class="form">
+        <div>
+            <input type="text" id="name" placeholder="Nome Item" class="campo_form" required>
+        </div>
+        <div>
+            <input type="number" id="quantidade" placeholder="Quantidade" class="campo_form" required>
+        </div>
+        <div>
+            <select id="eventos" class="campo_form">
+                <option value="" disabled selected>Selecione um evento</option>
+                <option value="assembleia">Assembleia</option>
+                <option value="congresso">Congresso</option>
+                <option value="celebracao">Celebração</option>
+                <option value="outros">Outros</option>
+            </select>
+        </div>
+        <div>
+            <input type="date" id="data" placeholder="Data" class="campo_form" required>
+        </div>
+        <div>
+            <button id="submit" class="campo_form">Solicitar</button>
+        </div>
+    </form>
+
+    <form id="formPesquisar" class="form">
+        <div>
+            <input type="text" id="name" placeholder="Nome Item" class="campo_form" required>
+        </div>
+        <div>
+            <input type="number" id="codigo" placeholder="Código" class="campo_form">
+        </div>
+        <div>
+            <button id="submit" class="campo_form">Pesquisar</button>
+        </div>
+    </form>
+
+    <script src="./Script/mainPage.js"></script>
+</body>
+</html>

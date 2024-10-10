@@ -59,7 +59,7 @@ button:hover {
     background-color: #14202E;
 }
 
-.botao_cadastro {
+.botao_login {
     text-decoration: none;
     background-color: #264257;
     color: #88A9C3;
@@ -71,7 +71,7 @@ button:hover {
     cursor: pointer;
 }
 
-.botao_cadastro:hover {
+.botao_login:hover {
     transition: background-color 0.3s ease;
     background-color: #88A9C3;
     color: #091235;
