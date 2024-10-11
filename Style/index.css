@@ -1,3 +1,20 @@
+#message {
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: white;
+    display: none;
+}
+
+#message.success {
+    color: green;
+}
+
+#message.error {
+    color: red;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #264257; /* Fundo da página */
