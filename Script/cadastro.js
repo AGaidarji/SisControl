@@ -1,14 +1,14 @@
 document.getElementById('userCadastro').addEventListener('submit', async function (event) {
-    event.defaultPrevented();
+    event.preventDefault();
 
-    const nome = document.getElementById('name');
-    const email = document.getElementById('email');
-    const telefone = document.getElementById('telefone');
-    const congregacao = document.getElementById('congregacao');
-    const password = document.getElementById('password');
-    const passwordRepeat = document.getElementById('passwordRepeat');
+    const nome = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const telefone = document.getElementById('telefone').value;
+    const congregacao = document.getElementById('congregacao').value;
+    const password = document.getElementById('password').value;
+    const passwordRepeat = document.getElementById('passwordRepeat').value;
 
-    const checkEmailResponse = await fetch(`https://localhost:7065/api/UserCadastro/email/${email}`, {
+    const checkEmailResponse = await fetch(`https://localhost:5201/api/UserCadastro/email/${email}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ document.getElementById('userCadastro').addEventListener('submit', async functio
     }
 
     // Faz o POST no banco de dados
-    const response = await fetch('https://localhost:7065/api/UserCadastro', {
+    const response = await fetch('https://localhost:5201/api/UserCadastro', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -61,7 +61,7 @@ document.getElementById('userCadastro').addEventListener('submit', async functio
         messageDiv.style.display = 'block';
 
         setTimeout(() => {
-            window.location.href = './Html/mainPage.html';
+            window.location.href = 'mainPage.html';
         }, 2000);
     } else {
         messageDiv.innerText = 'Erro ao adicionar usuário.';
