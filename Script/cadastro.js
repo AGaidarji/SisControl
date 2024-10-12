@@ -41,7 +41,7 @@ document.getElementById('userCadastro').addEventListener('submit', async functio
     }
 
     // Faz o POST no banco de dados
-    const response = await fetch('https://localhost:5201/api/UserCadastro', {
+    const response = await fetch('https://localhost:7065/api/UserCadastro', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

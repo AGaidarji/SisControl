@@ -6,13 +6,12 @@ var builder = WebApplication.CreateBuilder(args);
 //Configuração do CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAllOrigins",
-        builder =>
-        {
-            builder.AllowAnyOrigin()
-                   .AllowAnyMethod()
-                   .AllowAnyHeader();
-        });
+    options.AddPolicy("AllowGitHubPages", policy =>
+    {
+        policy.WithOrigins("https://agaidarji.github.io/SisControl/") // Ajuste para o seu domínio do GitHub Pages
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
 });
 
 // Add services to the container.
@@ -32,7 +31,7 @@ builder.Services.AddDbContext<ItemContext>(options =>
 var app = builder.Build();
 
 //Permite que a requisição HTTP acesse qualquer CORS
-app.UseCors("AllowAllOrigins");
+app.UseCors("AllowGitHubPages");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

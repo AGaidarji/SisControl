@@ -11,36 +11,20 @@
       "RelativeMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|solutionrelative:models\\usercadastro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|c:\\users\\guilherme bomfim\\documents\\estudos programa\u00E7\u00E3o\\siscontrol\\backend\\siscontrolapi\\controllers\\usercadastrocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|solutionrelative:controllers\\usercadastrocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|c:\\users\\guilherme bomfim\\documents\\estudos programa\u00E7\u00E3o\\siscontrol\\backend\\siscontrolapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|c:\\users\\guilherme bomfim\\documents\\estudos programa\u00E7\u00E3o\\siscontrol\\backend\\siscontrolapi\\models\\usercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|solutionrelative:models\\usercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|c:\\users\\guilherme bomfim\\documents\\estudos programa\u00E7\u00E3o\\siscontrol\\backend\\siscontrolapi\\models\\userlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|solutionrelative:models\\userlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|c:\\users\\guilherme bomfim\\documents\\estudos programa\u00E7\u00E3o\\siscontrol\\backend\\siscontrolapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|c:\\users\\guilherme bomfim\\documents\\estudos programa\u00E7\u00E3o\\siscontrol\\backend\\siscontrolapi\\models\\itemcadastro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|solutionrelative:models\\itemcadastro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|c:\\users\\guilherme bomfim\\documents\\estudos programa\u00E7\u00E3o\\siscontrol\\backend\\siscontrolapi\\models\\itempedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|solutionrelative:models\\itempedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|c:\\users\\guilherme bomfim\\documents\\estudos programa\u00E7\u00E3o\\siscontrol\\backend\\siscontrolapi\\models\\itempesquisa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|solutionrelative:models\\itempesquisa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|c:\\users\\guilherme bomfim\\documents\\estudos programa\u00E7\u00E3o\\siscontrol\\backend\\siscontrolapi\\models\\itemcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|solutionrelative:models\\itemcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|c:\\users\\guilherme bomfim\\documents\\estudos programa\u00E7\u00E3o\\siscontrol\\backend\\siscontrolapi\\controllers\\usercadastrocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|solutionrelative:controllers\\usercadastrocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,15 +42,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Guilherme Bomfim\\Documents\\Estudos programa\u00E7\u00E3o\\SisControl\\Backend\\SisControlApi\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\Guilherme Bomfim\\Documents\\Estudos programa\u00E7\u00E3o\\SisControl\\Backend\\SisControlApi\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAABcAAAA",
+              "DocumentIndex": 2,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Guilherme Bomfim\\Documents\\Estudos programa\u00E7\u00E3o\\SisControl\\Backend\\SisControlApi\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Guilherme Bomfim\\Documents\\Estudos programa\u00E7\u00E3o\\SisControl\\Backend\\SisControlApi\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAABoAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-10-11T00:25:21.517Z",
+              "WhenOpened": "2024-10-11T19:49:30.624Z",
               "EditorCaption": ""
             },
             {
@@ -77,14 +61,14 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\Guilherme Bomfim\\Documents\\Estudos programa\u00E7\u00E3o\\SisControl\\Backend\\SisControlApi\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAiAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAACEAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-10T23:55:38.799Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 4,
               "Title": "ItemContext.cs",
               "DocumentMoniker": "C:\\Users\\Guilherme Bomfim\\Documents\\Estudos programa\u00E7\u00E3o\\SisControl\\Backend\\SisControlApi\\Models\\ItemContext.cs",
               "RelativeDocumentMoniker": "Models\\ItemContext.cs",
@@ -92,8 +76,7 @@
               "RelativeToolTip": "Models\\ItemContext.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-10T23:44:29.623Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-10T23:44:29.623Z"
             },
             {
               "$type": "Document",
@@ -105,8 +88,7 @@
               "RelativeToolTip": "Models\\UserContext.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-10T23:44:15.547Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-10T23:44:15.547Z"
             },
             {
               "$type": "Document",
@@ -116,75 +98,22 @@
               "RelativeDocumentMoniker": "Models\\UserCadastro.cs",
               "ToolTip": "C:\\Users\\Guilherme Bomfim\\Documents\\Estudos programa\u00E7\u00E3o\\SisControl\\Backend\\SisControlApi\\Models\\UserCadastro.cs",
               "RelativeToolTip": "Models\\UserCadastro.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-10T23:18:37.523Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "UserCadastroController.cs",
               "DocumentMoniker": "C:\\Users\\Guilherme Bomfim\\Documents\\Estudos programa\u00E7\u00E3o\\SisControl\\Backend\\SisControlApi\\Controllers\\UserCadastroController.cs",
               "RelativeDocumentMoniker": "Controllers\\UserCadastroController.cs",
               "ToolTip": "C:\\Users\\Guilherme Bomfim\\Documents\\Estudos programa\u00E7\u00E3o\\SisControl\\Backend\\SisControlApi\\Controllers\\UserCadastroController.cs",
               "RelativeToolTip": "Controllers\\UserCadastroController.cs",
-              "ViewState": "AQIAACYAAAAAAAAAAAAwwC8AAABeAAAA",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAswC8AAABeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-11T00:32:13.305Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ItemPesquisa.cs",
-              "DocumentMoniker": "C:\\Users\\Guilherme Bomfim\\Documents\\Estudos programa\u00E7\u00E3o\\SisControl\\Backend\\SisControlApi\\Models\\ItemPesquisa.cs",
-              "RelativeDocumentMoniker": "Models\\ItemPesquisa.cs",
-              "ToolTip": "C:\\Users\\Guilherme Bomfim\\Documents\\Estudos programa\u00E7\u00E3o\\SisControl\\Backend\\SisControlApi\\Models\\ItemPesquisa.cs",
-              "RelativeToolTip": "Models\\ItemPesquisa.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-10T23:41:03.938Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ItemPedido.cs",
-              "DocumentMoniker": "C:\\Users\\Guilherme Bomfim\\Documents\\Estudos programa\u00E7\u00E3o\\SisControl\\Backend\\SisControlApi\\Models\\ItemPedido.cs",
-              "RelativeDocumentMoniker": "Models\\ItemPedido.cs",
-              "ToolTip": "C:\\Users\\Guilherme Bomfim\\Documents\\Estudos programa\u00E7\u00E3o\\SisControl\\Backend\\SisControlApi\\Models\\ItemPedido.cs",
-              "RelativeToolTip": "Models\\ItemPedido.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-10T23:25:31.933Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ItemCadastro.cs",
-              "DocumentMoniker": "C:\\Users\\Guilherme Bomfim\\Documents\\Estudos programa\u00E7\u00E3o\\SisControl\\Backend\\SisControlApi\\Models\\ItemCadastro.cs",
-              "RelativeDocumentMoniker": "Models\\ItemCadastro.cs",
-              "ToolTip": "C:\\Users\\Guilherme Bomfim\\Documents\\Estudos programa\u00E7\u00E3o\\SisControl\\Backend\\SisControlApi\\Models\\ItemCadastro.cs",
-              "RelativeToolTip": "Models\\ItemCadastro.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-10T23:20:43.306Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UserLogin.cs",
-              "DocumentMoniker": "C:\\Users\\Guilherme Bomfim\\Documents\\Estudos programa\u00E7\u00E3o\\SisControl\\Backend\\SisControlApi\\Models\\UserLogin.cs",
-              "RelativeDocumentMoniker": "Models\\UserLogin.cs",
-              "ToolTip": "C:\\Users\\Guilherme Bomfim\\Documents\\Estudos programa\u00E7\u00E3o\\SisControl\\Backend\\SisControlApi\\Models\\UserLogin.cs",
-              "RelativeToolTip": "Models\\UserLogin.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAApAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-10T23:16:43.065Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-11T00:32:13.305Z"
             }
           ]
         }

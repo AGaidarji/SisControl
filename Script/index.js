@@ -4,7 +4,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     const email = document.getElementById('email');
     const password = document.getElementById('password');
 
-    const response = await fetch('https://https://agaidarji.github.io/SisControl/index.html', {
+    const response = await fetch('https://localhost:5201/api/UserCadastro', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
