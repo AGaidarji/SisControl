@@ -6,13 +6,10 @@ var builder = WebApplication.CreateBuilder(args);
 //Configuração do CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAllOrigins",
-        builder =>
-        {
-            builder.AllowAnyOrigin() // Altere para a origem correta
-                   .AllowAnyMethod()
-                   .AllowAnyHeader();
-        });
+    options.AddPolicy("AllowSpecificOrigin",
+        builder => builder.WithOrigins("https://agaidarji.github.io")
+                          .AllowAnyHeader()
+                          .AllowAnyMethod());
 });
 
 // Add services to the container.
@@ -43,8 +40,17 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseDeveloperExceptionPage();
+
+app.UseRouting();
+
+app.UseCors("AllowSpecificOrigin");  // Ativa a política de CORS configurada
+
 app.UseAuthorization();
 
-app.MapControllers();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
 
 app.Run();
