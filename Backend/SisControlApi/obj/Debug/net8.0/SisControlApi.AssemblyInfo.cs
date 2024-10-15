@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SisControlApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+59b29bff7342c769581db686883b13f553829fed")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+613d0c75dbee4f543c9b777acd278c75a2ef8558")]
 [assembly: System.Reflection.AssemblyProductAttribute("SisControlApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SisControlApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
