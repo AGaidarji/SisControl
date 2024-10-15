@@ -8,7 +8,7 @@ document.getElementById('userCadastro').addEventListener('submit', async functio
     const password = document.getElementById('password').value;
     const passwordRepeat = document.getElementById('passwordRepeat').value;
 
-    const checkEmailResponse = await fetch(`https://siscontrolsa.azurewebsites.net/api/UserCadastro/email/${email}`, {
+    const checkEmailResponse = await fetch(`https://localhost:5201/api/UserCadastro/email/${email}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ document.getElementById('userCadastro').addEventListener('submit', async functio
     }
 
     // Faz o POST no banco de dados
-    const response = await fetch('https://siscontrolsa.azurewebsites.net/api/UserCadastro', {
+    const response = await fetch('https://localhost:5201/api/UserCadastro', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

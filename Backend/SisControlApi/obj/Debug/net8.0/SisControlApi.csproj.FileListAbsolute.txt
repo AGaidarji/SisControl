@@ -473,7 +473,6 @@ C:\Projetos\SisControl\Backend\SisControlApi\obj\Debug\net8.0\SisControlApi.Asse
 C:\Projetos\SisControl\Backend\SisControlApi\obj\Debug\net8.0\SisControlApi.csproj.CoreCompileInputs.cache
 C:\Projetos\SisControl\Backend\SisControlApi\obj\Debug\net8.0\SisControlApi.MvcApplicationPartsAssemblyInfo.cs
 C:\Projetos\SisControl\Backend\SisControlApi\obj\Debug\net8.0\SisControlApi.MvcApplicationPartsAssemblyInfo.cache
-C:\Projetos\SisControl\Backend\SisControlApi\obj\Debug\net8.0\SisControlApi.sourcelink.json
 C:\Projetos\SisControl\Backend\SisControlApi\obj\Debug\net8.0\staticwebassets.build.json
 C:\Projetos\SisControl\Backend\SisControlApi\obj\Debug\net8.0\staticwebassets.development.json
 C:\Projetos\SisControl\Backend\SisControlApi\obj\Debug\net8.0\staticwebassets\msbuild.SisControlApi.Microsoft.AspNetCore.StaticWebAssets.props

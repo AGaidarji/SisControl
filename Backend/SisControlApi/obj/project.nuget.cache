@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+z+3bSdqg+k=",
+  "dgSpecHash": "OF1RbCftzAg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Guilherme Bomfim\\Documents\\Estudos programação\\SisControl\\SisControl\\Backend\\SisControlApi\\SisControlApi.csproj",
+  "projectFilePath": "C:\\Projetos\\SisControl\\Backend\\SisControlApi\\SisControlApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Guilherme Bomfim\\.nuget\\packages\\bouncycastle.cryptography\\2.3.1\\bouncycastle.cryptography.2.3.1.nupkg.sha512",
     "C:\\Users\\Guilherme Bomfim\\.nuget\\packages\\google.protobuf\\3.26.1\\google.protobuf.3.26.1.nupkg.sha512",
