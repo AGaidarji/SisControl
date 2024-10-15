@@ -8,7 +8,7 @@ document.getElementById('userCadastro').addEventListener('submit', async functio
     const password = document.getElementById('password').value;
     const passwordRepeat = document.getElementById('passwordRepeat').value;
 
-    const checkEmailResponse = await fetch(`https://siscontrolsa.azurewebsites.net/api/UserCadastro/email/`, {
+    const checkEmailResponse = await fetch(`https://siscontrolsa.azurewebsites.net/api/UserCadastro/email/${email}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
