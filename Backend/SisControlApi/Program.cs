@@ -1,50 +1,56 @@
 using Microsoft.EntityFrameworkCore;
 using SisControlApi.Models;
 
-var builder = WebApplication.CreateBuilder(args);
-
-//Configuração do CORS
-builder.Services.AddCors(options =>
+internal class Program
 {
-    options.AddPolicy("AllowAllOrigins",
-        builder =>
+    private static void Main(string[] args)
+    {
+        var builder = WebApplication.CreateBuilder(args);
+
+        //Configuração do CORS
+        builder.Services.AddCors(options =>
         {
-            builder.WithOrigins("http://127.0.0.1:5500") // Altere para a origem correta
-                   .AllowAnyMethod()
-                   .AllowAnyHeader();
+            options.AddPolicy("AllowAllOrigins",
+                builder =>
+                {
+                    builder.WithOrigins("http://127.0.0.1:5500") // Altere para a origem correta
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
+                });
         });
-});
 
-// Add services to the container.
+        // Add services to the container.
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+        builder.Services.AddControllers();
+        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+        builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddSwaggerGen();
 
-// Adiciona o MySQL ao serviço
-builder.Services.AddDbContext<UserContext>(options =>
-    options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")!));
+        // Adiciona o MySQL ao serviço
+        builder.Services.AddDbContext<UserContext>(options =>
+            options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")!));
 
-builder.Services.AddDbContext<ItemContext>(options =>
-    options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")!));
+        builder.Services.AddDbContext<ItemContext>(options =>
+            options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")!));
 
-var app = builder.Build();
+        var app = builder.Build();
 
-//Permite que a requisição HTTP acesse qualquer CORS
-app.UseCors("AllowAllOrigins");
+        //Permite que a requisição HTTP acesse qualquer CORS
+        app.UseCors("AllowAllOrigins");
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
+        // Configure the HTTP request pipeline.
+        if (app.Environment.IsDevelopment())
+        {
+            app.UseSwagger();
+            app.UseSwaggerUI();
+        }
+
+        app.UseHttpsRedirection();
+
+        app.UseAuthorization();
+
+        app.MapControllers();
+
+        app.Run();
+    }
 }
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();

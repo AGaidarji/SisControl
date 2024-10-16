@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
+
 namespace SisControlApi.Models;
 
 public class UserContext : DbContext
 {
+    public UserContext () { }
     public UserContext(DbContextOptions<UserContext> options)
         : base(options)
     {
@@ -13,7 +15,7 @@ public class UserContext : DbContext
     {
         if (!optionsBuilder.IsConfigured)
         {
-            optionsBuilder.UseMySQL("Server=localhost;Database=Guilherme;User=root;Password=Bomfim1998;");
+            optionsBuilder.UseMySQL("Server=localhost;Database=siscontrol;User=root;Password=Bomfim1998;");
         }
     }
 

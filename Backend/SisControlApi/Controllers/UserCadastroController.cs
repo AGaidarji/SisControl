@@ -91,7 +91,11 @@ namespace SisControlApi.Controllers
         [HttpPost]
         public async Task<ActionResult<UserCadastro>> PostUserCadastro(UserCadastro userCadastro)
         {
+            // Defina a data de login para o momento atual
+            userCadastro.DateLogin = DateTime.Now; // Atualiza a data de login
+
             _context.UserCadastro.Add(userCadastro);
+
             try
             {
                 await _context.SaveChangesAsync();
@@ -111,7 +115,9 @@ namespace SisControlApi.Controllers
             return CreatedAtAction("GetUserCadastro", new { id = userCadastro.Nome }, userCadastro);
         }
 
-        // DELETE: api/UserCadastroes/5
+
+
+        // DELETE: api/UserCadastro/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUserCadastro(string id)
         {

@@ -487,3 +487,4 @@ C:\Projetos\SisControl\Backend\SisControlApi\obj\Debug\net8.0\refint\SisControlA
 C:\Projetos\SisControl\Backend\SisControlApi\obj\Debug\net8.0\SisControlApi.pdb
 C:\Projetos\SisControl\Backend\SisControlApi\obj\Debug\net8.0\SisControlApi.genruntimeconfig.cache
 C:\Projetos\SisControl\Backend\SisControlApi\obj\Debug\net8.0\ref\SisControlApi.dll
+C:\Projetos\SisControl\Backend\SisControlApi\obj\Debug\net8.0\SisControlApi.sourcelink.json
