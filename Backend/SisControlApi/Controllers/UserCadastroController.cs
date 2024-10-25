@@ -55,37 +55,6 @@ namespace SisControlApi.Controllers
             return Ok(new { exists = false });
         }
 
-        // PUT: api/UserCadastro/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutUserCadastro(string id, UserCadastro userCadastro)
-        {
-            if (id != userCadastro.Nome)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(userCadastro).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!UserCadastroExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
         // POST: api/UserCadastro
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
@@ -98,6 +67,17 @@ namespace SisControlApi.Controllers
 
             try
             {
+                await _context.SaveChangesAsync();
+
+                var userLogin = new UserLogin
+                {
+                    Id = userCadastro.Id,  // Usando o mesmo Id do cadastro
+                    Email = userCadastro.Email,
+                    Password = userCadastro.Password,
+                    DateLogin = DateTime.Now // Apenas inicializando, será atualizado no login
+                };
+
+                _context.UserLogin.Add(userLogin);
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
@@ -113,24 +93,6 @@ namespace SisControlApi.Controllers
             }
 
             return CreatedAtAction("GetUserCadastro", new { id = userCadastro.Nome }, userCadastro);
-        }
-
-
-
-        // DELETE: api/UserCadastro/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUserCadastro(string id)
-        {
-            var userCadastro = await _context.UserCadastro.FindAsync(id);
-            if (userCadastro == null)
-            {
-                return NotFound();
-            }
-
-            _context.UserCadastro.Remove(userCadastro);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
         }
 
         private bool UserCadastroExists(string id)

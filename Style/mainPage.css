@@ -23,6 +23,10 @@ button:hover {
     color: #091235;
 }
 
+.button-exclusive{
+    display: none;
+}
+
 /* Estilo do formulário */
 .form {
     background-color: #14202E; /* Fundo do formulário */

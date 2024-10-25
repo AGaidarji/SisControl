@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.SqlServer;
 
 
 namespace SisControlApi.Models;
@@ -15,7 +16,7 @@ public class UserContext : DbContext
     {
         if (!optionsBuilder.IsConfigured)
         {
-            optionsBuilder.UseMySQL("Server=localhost;Database=siscontrol;User=root;Password=Bomfim1998;");
+            optionsBuilder.UseSqlServer("Server=localhost;Database=siscontrol;User=root;Password=Bomfim1998;");
         }
     }
 
@@ -25,5 +26,6 @@ public class UserContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<UserCadastro>().ToTable("usuarios", schema: "siscontrol");
+        modelBuilder.Entity<UserLogin>().ToTable("userlogin", schema: "siscontrol");
     }
 }

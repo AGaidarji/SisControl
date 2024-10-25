@@ -1,10 +1,10 @@
 document.getElementById('loginForm').addEventListener('submit', async function (event) {
     event.preventDefault();
 
-    const email = document.getElementById('email');
-    const password = document.getElementById('password');
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
 
-    const response = await fetch('https://localhost:5201/api/UserCadastro', {
+    const response = await fetch('https://localhost:5201/api/UserLogin/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -26,8 +26,8 @@ document.getElementById('loginForm').addEventListener('submit', async function (
 
         //Levar para outra pagina após logado com sucesso
         setTimeout(() => {
-            window.location.href = 'Index.html';
-        }, 2000)
+            window.location.href = 'mainPage.html';
+        }, 1000)
     } else {
         messageDiv.innerText = 'Email ou senha incorretos.';
         messageDiv.className = 'error'; // Classe para erro

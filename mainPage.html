@@ -7,9 +7,10 @@
     <title>SisControl - Main Page</title>
 </head>
 <body>
-    <button id="cadastrarItem">Cadastrar novo item</button>
+    <button id="cadastrarItem" class="button-exclusive">Cadastrar novo item</button>
     <button id="solicitarItem">Solicitar item</button>
     <button id="pesquisarItem">Pesquisar item</button>
+    <button id="usuarios" class="button-exclusive">Usuários</button>
 
     <form id="formCadastrar" class="form">
         <div>
@@ -20,6 +21,9 @@
         </div>
         <div>
             <input type="text" id="description" placeholder="Descrição" class="campo_form">
+        </div>
+        <div>
+            <input type="file" id="foto" name="foto" accept="image/jpeg,image/png" class="campo_form">
         </div>
         <div>
             <button id="submit" class="campo_form">Enviar</button>
@@ -62,6 +66,18 @@
         </div>
     </form>
 
+    <form id="formUsuarios" class="form">
+        <div>
+            <input type="text" id="nameUser" placeholder="Nome usuário" class="campo_form">
+        </div>
+        <div>
+            <input type="email" id="email" placeholder="Email usuário" class="campo_form">
+        </div>
+        <div>
+            <button id="submit" class="campo_form">Pesquisar</button>
+        </div>
+    </form>
+    
     <script src="./Script/mainPage.js"></script>
 </body>
 </html>

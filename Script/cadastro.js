@@ -62,7 +62,7 @@ document.getElementById('userCadastro').addEventListener('submit', async functio
 
         setTimeout(() => {
             window.location.href = 'mainPage.html';
-        }, 2000);
+        }, 1000);
     } else {
         messageDiv.innerText = 'Erro ao adicionar usuário.';
         messageDiv.className = 'error';

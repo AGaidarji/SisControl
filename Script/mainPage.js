@@ -1,26 +1,21 @@
 const cadastrarButton = document.getElementById('cadastrarItem');
 const soliticarButton = document.getElementById('solicitarItem');
 const pesquisarButton = document.getElementById('pesquisarItem');
+const usuariosButton = document.getElementById('usuarios');
 
 const formCadastro = document.getElementById('formCadastrar');
 const formSolicitar = document.getElementById('formSolicitar');
 const formPesquisar = document.getElementById('formPesquisar');
+const formUsuarios = document.getElementById('formUsuarios');
 
-cadastrarButton.addEventListener('click', function() {
-    if (formCadastro.style.display === 'none' || formCadastro.style.display === '') {
-        formCadastro.style.display = 'block';
-        formSolicitar.style.display = 'none';
-        formPesquisar.style.display = 'none';
-    } else {
-        formCadastro.style.display = 'none';
-    }
-})
+const userFunction = 'admin';
 
 soliticarButton.addEventListener('click', function() {
     if (formSolicitar.style.display === 'none' || formSolicitar.style.display === '') {
         formSolicitar.style.display = 'block';
         formCadastro.style.display = 'none';
         formPesquisar.style.display = 'none';
+        formUsuarios.style.display = 'none';
     } else {
         formSolicitar.style.display = 'none';
     }
@@ -31,10 +26,38 @@ pesquisarButton.addEventListener('click', function() {
         formPesquisar.style.display = 'block';
         formCadastro.style.display = 'none';
         formSolicitar.style.display = 'none';
+        formUsuarios.style.display = 'none';
     } else {
         formPesquisar.style.display = 'none';
     }
 })
+
+if (userFunction == 'admin' || userFunction == 'adminMaster') {
+    usuariosButton.style.display = 'inline';
+    cadastrarButton.style.display = 'inline';
+
+    usuariosButton.addEventListener('click', function() {
+        if (formUsuarios.style.display === 'none' || formUsuarios.style.display === '') {
+            formUsuarios.style.display = 'block';
+            formPesquisar.style.display = 'none';
+            formCadastro.style.display = 'none';
+            formSolicitar.style.display = 'none';
+        } else {
+            formUsuarios.style.display = 'none';
+        }
+    })
+
+    cadastrarButton.addEventListener('click', function() {
+        if (formCadastro.style.display === 'none' || formCadastro.style.display === '') {
+            formCadastro.style.display = 'block';
+            formSolicitar.style.display = 'none';
+            formPesquisar.style.display = 'none';
+            formUsuarios.style.display = 'none';
+        } else {
+            formCadastro.style.display = 'none';
+        }
+    })
+}
 
 document.getElementById('formCadastrar').addEventListener('submit', async function (event) {
     event.preventDefault();
