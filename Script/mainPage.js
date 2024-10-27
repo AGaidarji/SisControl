@@ -62,19 +62,17 @@ if (userFunction == 'admin' || userFunction == 'adminMaster') {
 document.getElementById('formCadastrar').addEventListener('submit', async function (event) {
     event.preventDefault();
 
-    const name = document.getElementById('name').value;
-    const quantidade = document.getElementById('quantidade').value;
-    const description = document.getElementById('description').value;
-    const dateIn = new Date();
-    const formattedDate = new Intl.DateTimeFormat('pt-BR', {
-        day: '2-digit',
-        month: '2-digit',
-        year: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false
-    }).format(dateIn);
+    const formData = new FormData();
+    formData.append('nome', document.getElementById('nome').value);
+    formData.append('quantidade', document.getElementById('quantidade').value);
+    formData.append('descricao', document.getElementById('descricao').value);
+    formData.append('imagem', document.getElementById('imagem').files[0]);
 
-    console.log(formattedDate);
+    const response = await fetch('https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/ItemCadastro/upload'{
+        method: 'POST',
+        body: formData
+    });
+
+    const result = await response.json();
+    console.log(result.message);
 })
