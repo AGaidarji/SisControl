@@ -40,7 +40,7 @@ namespace SisControlApi.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Password")
+                    b.Property<string>("PasswordHash")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -50,28 +50,6 @@ namespace SisControlApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("usuarios", "siscontrol");
-                });
-
-            modelBuilder.Entity("SisControlApi.Models.UserLogin", b =>
-                {
-                    b.Property<int?>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DateLogin")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("userlogin", "siscontrol");
                 });
 #pragma warning restore 612, 618
         }

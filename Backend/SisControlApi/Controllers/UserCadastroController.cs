@@ -20,16 +20,16 @@ namespace SisControlApi.Controllers
             _context = context;
         }
 
-        // GET: api/UserCadastro
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<UserCadastro>>> GetUserCadastro()
+        // GET: api/UserCadastro - Obter todos os cadastros
+        [HttpGet("all")]
+        public async Task<ActionResult<IEnumerable<UserCadastro>>> GetAllUserCadastro()
         {
             return await _context.UserCadastro.ToListAsync();
         }
 
-        // GET: api/UserCadastro/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<UserCadastro>> GetUserCadastro(string id)
+        // GET: api/UserCadastro/5 - Obter cadastro específico pelo IdUser
+        [HttpGet("{IdUser:int}")]
+        public async Task<ActionResult<UserCadastro>> GetUserCadastroById(int id)
         {
             var userCadastro = await _context.UserCadastro.FindAsync(id);
 
@@ -41,7 +41,7 @@ namespace SisControlApi.Controllers
             return userCadastro;
         }
 
-        // GET: Serve para pegar o email e verificar se o email ja existe no banco de dados
+        // GET: api/UserCadastro/email/{email} - Verificar se o email já existe no banco de dados
         [HttpGet("email/{email}")]
         public async Task<IActionResult> CheckEmail(string email)
         {
@@ -55,29 +55,16 @@ namespace SisControlApi.Controllers
             return Ok(new { exists = false });
         }
 
-        // POST: api/UserCadastro
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // POST: api/UserCadastro - Cadastrar novo usuário
         [HttpPost]
         public async Task<ActionResult<UserCadastro>> PostUserCadastro(UserCadastro userCadastro)
         {
-            // Defina a data de login para o momento atual
             userCadastro.DateLogin = DateTime.Now; // Atualiza a data de login
 
             _context.UserCadastro.Add(userCadastro);
 
             try
             {
-                await _context.SaveChangesAsync();
-
-                var userLogin = new UserLogin
-                {
-                    Id = userCadastro.Id,  // Usando o mesmo Id do cadastro
-                    Email = userCadastro.Email,
-                    Password = userCadastro.Password,
-                    DateLogin = DateTime.Now // Apenas inicializando, será atualizado no login
-                };
-
-                _context.UserLogin.Add(userLogin);
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateException)
@@ -92,7 +79,32 @@ namespace SisControlApi.Controllers
                 }
             }
 
-            return CreatedAtAction("GetUserCadastro", new { id = userCadastro.Nome }, userCadastro);
+            return CreatedAtAction(nameof(GetUserCadastroById), new { id = userCadastro.IdUser }, userCadastro);
+        }
+
+        // POST: api/LoginRequest/login - Login de usuário
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
+        {
+            if (loginRequest == null ||
+                string.IsNullOrEmpty(loginRequest.Email) ||
+                string.IsNullOrEmpty(loginRequest.PasswordHash))
+            {
+                return BadRequest(new { message = "Email e senha são obrigatórios." });
+            }
+
+            var user = await _context.UserCadastro
+                                .FirstOrDefaultAsync(u => u.Email == loginRequest.Email && u.PasswordHash == loginRequest.PasswordHash);
+
+            if (user == null)
+            {
+                return BadRequest(new { message = "Email ou senha incorretos" });
+            }
+
+            user.DateLogin = DateTime.Now;
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "Login efetuado com sucesso", idUser = user.IdUser });
         }
 
         private bool UserCadastroExists(string id)

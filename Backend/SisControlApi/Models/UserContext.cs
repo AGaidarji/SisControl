@@ -12,20 +12,18 @@ public class UserContext : DbContext
     {
     }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)
         {
-            optionsBuilder.UseSqlServer("Server=localhost;Database=siscontrol;User=root;Password=Bomfim1998;");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-70UA9HO\\SQLEXPRESS;Database=SisControlDB;User Id=sa;Password=BSG1998@g;TrustServerCertificate=True;");
         }
-    }
+    }*/
 
-    public DbSet<UserLogin> UserLogin { get; set; } = null!;
     public DbSet<UserCadastro> UserCadastro { get; set; } = null!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<UserCadastro>().ToTable("usuarios", schema: "siscontrol");
-        modelBuilder.Entity<UserLogin>().ToTable("userlogin", schema: "siscontrol");
+        modelBuilder.Entity<UserCadastro>().ToTable("Usuarios");
     }
 }

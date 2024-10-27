@@ -2,18 +2,22 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     event.preventDefault();
 
     const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const passwordHash = document.getElementById('password').value;
 
-    const response = await fetch('https://localhost:5201/api/UserLogin/login', {
+    const loginRequest = {
+        Email: email,
+        PasswordHash: passwordHash
+    };
+    
+    const response = await fetch('https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/UserCadastro/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-            email: email,
-            password: password
-        })
-    })
+        body: JSON.stringify(loginRequest)
+    });
+
+    console.log("Ta chegando aqui");
 
     const messageDiv = document.getElementById('message');
 

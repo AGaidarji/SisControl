@@ -13,7 +13,7 @@ internal class Program
             options.AddPolicy("AllowAllOrigins",
                 builder =>
                 {
-                    builder.WithOrigins("http://127.0.0.1:5500") // Altere para a origem correta
+                    builder.WithOrigins("http://127.0.0.1:5500", "https://agaidarji.github.io/SisControl/") // Altere para a origem correta
                            .AllowAnyMethod()
                            .AllowAnyHeader();
                 });
@@ -27,11 +27,19 @@ internal class Program
         builder.Services.AddSwaggerGen();
 
         // Adiciona o MySQL ao serviço
-        builder.Services.AddDbContext<UserContext>(options =>
+        /*builder.Services.AddDbContext<UserContext>(options =>
             options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")!));
 
         builder.Services.AddDbContext<ItemContext>(options =>
-            options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")!));
+            options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")!));*/
+
+        // Adiciona o SQL ao serviço
+        builder.Services.AddDbContext<UserContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")!));
+
+        builder.Services.AddDbContext<ItemContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")!));
+
 
         var app = builder.Build();
 

@@ -5,10 +5,10 @@ document.getElementById('userCadastro').addEventListener('submit', async functio
     const email = document.getElementById('email').value;
     const telefone = document.getElementById('telefone').value;
     const congregacao = document.getElementById('congregacao').value;
-    const password = document.getElementById('password').value;
+    const passwordHash = document.getElementById('password').value;
     const passwordRepeat = document.getElementById('passwordRepeat').value;
 
-    const checkEmailResponse = await fetch(`https://localhost:5201/api/UserCadastro/email/${email}`, {
+    const checkEmailResponse = await fetch(`https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/UserCadastro/email/${email}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -33,7 +33,7 @@ document.getElementById('userCadastro').addEventListener('submit', async functio
     }
 
     // Verifica se as senhas inseridas são iguais para validação
-    if (password != passwordRepeat) {
+    if (passwordHash != passwordRepeat) {
         messageDiv.innerText = 'As senhas inseridas precisas ser iguais.';
         messageDiv.className = 'error';
         messageDiv.style.display = 'block';
@@ -41,7 +41,7 @@ document.getElementById('userCadastro').addEventListener('submit', async functio
     }
 
     // Faz o POST no banco de dados
-    const response = await fetch('https://localhost:5201/api/UserCadastro', {
+    const response = await fetch('https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/UserCadastro', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -51,7 +51,7 @@ document.getElementById('userCadastro').addEventListener('submit', async functio
             email: email,
             telefone: telefone,
             congregacao: congregacao,
-            password: password
+            passwordHash: passwordHash
         })
     });
 
