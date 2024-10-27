@@ -57,22 +57,22 @@ if (userFunction == 'admin' || userFunction == 'adminMaster') {
             formCadastro.style.display = 'none';
         }
     })
+
+    document.getElementById('formCadastrar').addEventListener('submit', async function (event) {
+        event.preventDefault();
+    
+        const formData = new FormData();
+        formData.append('nome', document.getElementById('nome').value);
+        formData.append('quantidade', document.getElementById('quantidade').value);
+        formData.append('descricao', document.getElementById('descricao').value);
+        formData.append('imagem', document.getElementById('imagem').files[0]);
+    
+        const response = await fetch('https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/ItemCadastro/upload'{
+            method: 'POST',
+            body: formData
+        });
+    
+        const result = await response.json();
+        console.log(result.message);
+    })
 }
-
-document.getElementById('formCadastrar').addEventListener('submit', async function (event) {
-    event.preventDefault();
-
-    const formData = new FormData();
-    formData.append('nome', document.getElementById('nome').value);
-    formData.append('quantidade', document.getElementById('quantidade').value);
-    formData.append('descricao', document.getElementById('descricao').value);
-    formData.append('imagem', document.getElementById('imagem').files[0]);
-
-    const response = await fetch('https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/ItemCadastro/upload'{
-        method: 'POST',
-        body: formData
-    });
-
-    const result = await response.json();
-    console.log(result.message);
-})
