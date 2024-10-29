@@ -62,7 +62,7 @@ if (userFunction == 'admin') {
         event.preventDefault();
     
         const formData = new FormData();
-        formData.append('nome', document.getElementById('name').value);
+        formData.append('nomeItem', document.getElementById('name').value);
         formData.append('quantidade', document.getElementById('quantidade').value);
         formData.append('descricao', document.getElementById('descricao').value);
         formData.append('imagem', document.getElementById('imagem').files[0]);
