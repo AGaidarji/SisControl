@@ -32,7 +32,7 @@ pesquisarButton.addEventListener('click', function() {
     }
 })
 
-if (userFunction == 'admin' || userFunction == 'adminMaster') {
+if (userFunction == 'admin') {
     usuariosButton.style.display = 'inline';
     cadastrarButton.style.display = 'inline';
 
