@@ -67,7 +67,7 @@ if (userFunction == 'admin' || userFunction == 'adminMaster') {
         formData.append('descricao', document.getElementById('descricao').value);
         formData.append('imagem', document.getElementById('imagem').files[0]);
     
-        const response = await fetch('https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/ItemCadastro/upload'{
+        const response = await fetch('https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/ItemCadastro/upload',{
             method: 'POST',
             body: formData
         });
