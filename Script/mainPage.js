@@ -64,7 +64,7 @@ if (userFunction == 'admin') {
         const formData = new FormData();
         formData.append('nomeItem', document.getElementById('name').value);
         formData.append('quantidade', document.getElementById('quantidade').value);
-        formData.append('descricao', document.getElementById('descricao').value);
+        formData.append('descricao', document.getElementById('description').value);
         formData.append('imagem', document.getElementById('imagem').files[0]);
     
         const response = await fetch('https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/ItemCadastro/upload',{
