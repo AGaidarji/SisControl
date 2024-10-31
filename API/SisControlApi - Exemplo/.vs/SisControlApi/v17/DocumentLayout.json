@@ -1,0 +1,109 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Projetos\\SisControl\\API\\SisControlApi - Exemplo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|c:\\projetos\\siscontrol\\api\\siscontrolapi - exemplo\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|c:\\projetos\\siscontrol\\api\\siscontrolapi - exemplo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|c:\\projetos\\siscontrol\\api\\siscontrolapi - exemplo\\models\\usercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|solutionrelative:models\\usercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|c:\\projetos\\siscontrol\\api\\siscontrolapi - exemplo\\models\\itemcadastro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|solutionrelative:models\\itemcadastro.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|c:\\projetos\\siscontrol\\api\\siscontrolapi - exemplo\\models\\itemcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|solutionrelative:models\\itemcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Projetos\\SisControl\\API\\SisControlApi - Exemplo\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Projetos\\SisControl\\API\\SisControlApi - Exemplo\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAABDAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T23:55:38.799Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Projetos\\SisControl\\API\\SisControlApi - Exemplo\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Projetos\\SisControl\\API\\SisControlApi - Exemplo\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAABAQAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-31T14:44:56.45Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserContext.cs",
+              "DocumentMoniker": "C:\\Projetos\\SisControl\\API\\SisControlApi - Exemplo\\Models\\UserContext.cs",
+              "RelativeDocumentMoniker": "Models\\UserContext.cs",
+              "ToolTip": "C:\\Projetos\\SisControl\\API\\SisControlApi - Exemplo\\Models\\UserContext.cs",
+              "RelativeToolTip": "Models\\UserContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-27T16:41:41.108Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ItemContext.cs",
+              "DocumentMoniker": "C:\\Projetos\\SisControl\\API\\SisControlApi - Exemplo\\Models\\ItemContext.cs",
+              "RelativeDocumentMoniker": "Models\\ItemContext.cs",
+              "ToolTip": "C:\\Projetos\\SisControl\\API\\SisControlApi - Exemplo\\Models\\ItemContext.cs",
+              "RelativeToolTip": "Models\\ItemContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-27T16:41:20.726Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ItemCadastro.cs",
+              "DocumentMoniker": "C:\\Projetos\\SisControl\\API\\SisControlApi - Exemplo\\Models\\ItemCadastro.cs",
+              "RelativeDocumentMoniker": "Models\\ItemCadastro.cs",
+              "ToolTip": "C:\\Projetos\\SisControl\\API\\SisControlApi - Exemplo\\Models\\ItemCadastro.cs",
+              "RelativeToolTip": "Models\\ItemCadastro.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-27T16:28:07.988Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
