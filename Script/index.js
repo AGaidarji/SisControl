@@ -9,7 +9,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
         PasswordHash: passwordHash
     };
     
-    const response = await fetch('https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/UserCadastro/login', {
+    const response = await fetch('https://localhost:5201/api/UserCadastro/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -17,7 +17,13 @@ document.getElementById('loginForm').addEventListener('submit', async function (
         body: JSON.stringify(loginRequest)
     });
 
-    console.log("Ta chegando aqui");
+    /*const response = await fetch('https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/UserCadastro/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(loginRequest)
+    });*/
 
     const messageDiv = document.getElementById('message');
 

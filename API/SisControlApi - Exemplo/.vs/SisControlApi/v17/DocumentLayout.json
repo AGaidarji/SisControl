@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Projetos\\SisControl\\API\\SisControlApi - Exemplo\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|c:\\projetos\\siscontrol\\api\\siscontrolapi - exemplo\\controllers\\usercadastrocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|solutionrelative:controllers\\usercadastrocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|c:\\projetos\\siscontrol\\api\\siscontrolapi - exemplo\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{F784AE6A-7E9B-4599-8015-AA38A54E9F19}|SisControlApi.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -34,7 +38,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Projetos\\SisControl\\API\\SisControlApi - Exemplo\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -43,12 +47,32 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAABDAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-10T23:55:38.799Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "UserCadastroController.cs",
+              "DocumentMoniker": "C:\\Projetos\\SisControl\\API\\SisControlApi - Exemplo\\Controllers\\UserCadastroController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserCadastroController.cs",
+              "ToolTip": "C:\\Projetos\\SisControl\\API\\SisControlApi - Exemplo\\Controllers\\UserCadastroController.cs",
+              "RelativeToolTip": "Controllers\\UserCadastroController.cs",
+              "ViewState": "AQIAAEwAAAAAAAAAAAAcwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-01T02:33:20.686Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Projetos\\SisControl\\API\\SisControlApi - Exemplo\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -60,12 +84,8 @@
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "UserContext.cs",
               "DocumentMoniker": "C:\\Projetos\\SisControl\\API\\SisControlApi - Exemplo\\Models\\UserContext.cs",
               "RelativeDocumentMoniker": "Models\\UserContext.cs",
@@ -73,12 +93,11 @@
               "RelativeToolTip": "Models\\UserContext.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T16:41:41.108Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T16:41:41.108Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ItemContext.cs",
               "DocumentMoniker": "C:\\Projetos\\SisControl\\API\\SisControlApi - Exemplo\\Models\\ItemContext.cs",
               "RelativeDocumentMoniker": "Models\\ItemContext.cs",
@@ -90,7 +109,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ItemCadastro.cs",
               "DocumentMoniker": "C:\\Projetos\\SisControl\\API\\SisControlApi - Exemplo\\Models\\ItemCadastro.cs",
               "RelativeDocumentMoniker": "Models\\ItemCadastro.cs",
@@ -98,8 +117,7 @@
               "RelativeToolTip": "Models\\ItemCadastro.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-27T16:28:07.988Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-27T16:28:07.988Z"
             }
           ]
         }

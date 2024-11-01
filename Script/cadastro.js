@@ -8,12 +8,19 @@ document.getElementById('userCadastro').addEventListener('submit', async functio
     const passwordHash = document.getElementById('password').value;
     const passwordRepeat = document.getElementById('passwordRepeat').value;
 
-    const checkEmailResponse = await fetch(`https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/UserCadastro/email/${email}`, {
+    const checkEmailResponse = await fetch(`https://localhost:5201/api/UserCadastro/email/${email}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
         }
     });
+
+    /*const checkEmailResponse = await fetch(`https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/UserCadastro/email/${email}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });*/
 
     // Verifica se o email já existe no banco de dados
     if (checkEmailResponse.ok) {
@@ -41,7 +48,7 @@ document.getElementById('userCadastro').addEventListener('submit', async functio
     }
 
     // Faz o POST no banco de dados
-    const response = await fetch('https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/UserCadastro', {
+    const response = await fetch('https://localhost:5201/api/UserCadastro', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -54,6 +61,20 @@ document.getElementById('userCadastro').addEventListener('submit', async functio
             passwordHash: passwordHash
         })
     });
+
+    /*const response = await fetch('https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/UserCadastro', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            nome: nome,
+            email: email,
+            telefone: telefone,
+            congregacao: congregacao,
+            passwordHash: passwordHash
+        })
+    });*/
 
     if(response.ok) {
         messageDiv.innerText = 'Usuário adicionado com sucesso!';

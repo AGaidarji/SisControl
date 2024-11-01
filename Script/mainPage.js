@@ -62,17 +62,33 @@ if (userFunction == 'admin') {
         event.preventDefault();
     
         const formData = new FormData();
-        formData.append('nomeItem', document.getElementById('name').value);
-        formData.append('quantidade', document.getElementById('quantidade').value);
-        formData.append('descricao', document.getElementById('descricao').value);
-        formData.append('imagem', document.getElementById('imagem').files[0]);
+        formData.append('NomeItem', document.getElementById('NomeItem').value);
+        formData.append('Quantidade', document.getElementById('Quantidade').value);
+        formData.append('Descricao', document.getElementById('Descricao').value);
+        formData.append('ImagemItem', document.getElementById('ImagemItem').files[0]);
     
-        const response = await fetch('https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/ItemCadastro/upload',{
+        const responseItem = await fetch('https://localhost:5201/api/ItemCadastro/upload', { 
             method: 'POST',
             body: formData
         });
-    
-        const result = await response.json();
+
+        try {
+            if (!responseItem.ok) {
+                const errorText = await responseItem.text();
+                console.error("Erro na resposta:", errorText);
+            } else {
+                console.log("Arquivo enviado com sucesso!");
+            }
+        } catch (error) {
+            console.error("Erro na requisição:", error);
+        }
+
+        /*const response = await fetch('https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/ItemCadastro/upload',{
+            method: 'POST',
+            body: formData
+        });*/
+
+        const result = await responseItem.json();
         console.log(result.message);
     })
 }
