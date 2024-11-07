@@ -24,15 +24,15 @@ document.getElementById('loginForm').addEventListener('submit', async function (
         },
         body: JSON.stringify(loginRequest)
     });*/
-
+    
     const messageDiv = document.getElementById('message');
+    const data = await response.json();
+    localStorage.setItem('userFunction', data.userFunction);
 
     if (response.ok) {
         messageDiv.innerText = 'Login efetuado com sucesso.';
         messageDiv.className = 'success'; // Classe para sucesso
         messageDiv.style.display = 'block'; // Exibe a mensagem
-
-        const loginOk = true;
 
         //Levar para outra pagina após logado com sucesso
         setTimeout(() => {
@@ -43,7 +43,6 @@ document.getElementById('loginForm').addEventListener('submit', async function (
         messageDiv.className = 'error'; // Classe para erro
         messageDiv.style.display = 'block'; // Exibe a mensagem
 
-        const loginOk = false;
         return;
     }
 });

@@ -3,6 +3,7 @@ document.getElementById('userCadastro').addEventListener('submit', async functio
 
     const nome = document.getElementById('name').value;
     const email = document.getElementById('email').value;
+    const cpf = document.getElementById('cpf').value;
     const telefone = document.getElementById('telefone').value;
     const congregacao = document.getElementById('congregacao').value;
     const passwordHash = document.getElementById('password').value;
@@ -56,6 +57,7 @@ document.getElementById('userCadastro').addEventListener('submit', async functio
         body: JSON.stringify({
             nome: nome,
             email: email,
+            cpf: cpf,
             telefone: telefone,
             congregacao: congregacao,
             passwordHash: passwordHash
@@ -70,6 +72,7 @@ document.getElementById('userCadastro').addEventListener('submit', async functio
         body: JSON.stringify({
             nome: nome,
             email: email,
+            cpf: cpf,
             telefone: telefone,
             congregacao: congregacao,
             passwordHash: passwordHash

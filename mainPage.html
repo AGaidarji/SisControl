@@ -68,16 +68,22 @@
 
     <form id="formUsuarios" class="form">
         <div>
-            <input type="text" id="nameUser" placeholder="Nome usuário" class="campo_form">
-        </div>
-        <div>
-            <input type="email" id="email" placeholder="Email usuário" class="campo_form">
+            <input type="text" id="cpf" name="CPF" placeholder="Informe o CPF do usuário" class="campo_form" required>
         </div>
         <div>
             <button id="submit" class="campo_form">Pesquisar</button>
         </div>
     </form>
-    
+
+    <div id="userInfo" class="user-info hidden">
+        <h3>Dados do usuário</h3>
+        <p class="p1"><strong>Nome: </strong> <span id="userNome"> </span></p>
+        <p class="p2"><strong>Email: </strong> <span id="userEmail"> </span></p>
+        <p class="p3"><strong>Congregação: </strong> <span id="userCongregacao"> </span></p>
+        <p class="p4"><strong>Função: </strong> <span id="userFuncao"></span> </p>
+    </div>
+
     <script src="./Script/mainPage.js"></script>
+    
 </body>
 </html>

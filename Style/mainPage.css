@@ -19,7 +19,7 @@ button {
 }
 
 button:hover {
-    background-color: #88A9C3; /* Cor ao passar o mouse */
+    background-color: #88A9C3;
     color: #091235;
 }
 
@@ -64,8 +64,8 @@ select.campo_form {
 
 /* Estilo do botão enviar */
 #submit {
-    background-color: #264257;
-    color: #88A9C3;
+    background-color: #88A9C3;
+    color: #264257;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -74,5 +74,48 @@ select.campo_form {
 }
 
 #submit:hover {
-    background-color: #14202E;
+    background-color: #264257;
+    color: #88A9C3;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 2px solid #264257;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    color: #091235;
+}
+
+.user-info p{
+    display: flex;
+    align-items: center;
+    padding: 4px 2px;
+}
+
+.user-info span {
+    padding: 4px 8px;
+    align-items: center;
+}
+
+.p1, .p3{
+    font-size: 1em;
+    margin: 5px 0;
+    padding: 5px;
+    background-color: #88A9C3;
+}
+
+.p2, .p4{
+    font-size: 1em;
+    margin: 5px 0;
+    padding: 5px;
+    background-color: #f9f9f9;
+}
+
+.hidden {
+    display: none;
 }
