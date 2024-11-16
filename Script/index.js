@@ -1,19 +1,23 @@
 document.getElementById('loginForm').addEventListener('submit', async function (event) {
     event.preventDefault();
 
-    const email = document.getElementById('email');
-    const password = document.getElementById('password');
+    const email = document.getElementById('email').value;
+    const passwordHash = document.getElementById('password').value;
 
-    const response = await fetch('https://siscontrolsa.azurewebsites.net/api/UserCadastro', {
+    const loginRequest = {
+        Email: email,
+        PasswordHash: passwordHash
+    };
+    
+    const response = await fetch('https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/UserCadastro/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-            email: email,
-            password: password
-        })
-    })
+        body: JSON.stringify(loginRequest)
+    });
+
+    console.log("Ta chegando aqui");
 
     const messageDiv = document.getElementById('message');
 
@@ -26,8 +30,8 @@ document.getElementById('loginForm').addEventListener('submit', async function (
 
         //Levar para outra pagina após logado com sucesso
         setTimeout(() => {
-            window.location.href = 'Index.html';
-        }, 2000)
+            window.location.href = 'mainPage.html';
+        }, 1000)
     } else {
         messageDiv.innerText = 'Email ou senha incorretos.';
         messageDiv.className = 'error'; // Classe para erro
