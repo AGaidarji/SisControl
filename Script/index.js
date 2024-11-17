@@ -36,12 +36,12 @@ document.getElementById('loginForm').addEventListener('submit', async function (
 
         //Levar para outra pagina após logado com sucesso
         setTimeout(() => {
-            window.location.href = 'mainPage.html';
+            window.location.href = 'mainPage2.html';
         }, 1000)
     } else {
         messageDiv.innerText = 'Email ou senha incorretos.';
-        messageDiv.className = 'error'; // Classe para erro
-        messageDiv.style.display = 'block'; // Exibe a mensagem
+        messageDiv.className = 'error';
+        messageDiv.style.display = 'block';
 
         return;
     }

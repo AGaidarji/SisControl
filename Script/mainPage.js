@@ -8,6 +8,8 @@ const formSolicitar = document.getElementById('formSolicitar');
 const formPesquisar = document.getElementById('formPesquisar');
 const formUsuarios = document.getElementById('formUsuarios');
 
+const userFunction = localStorage.getItem('userFunction');
+
 soliticarButton.addEventListener('click', function() {
     if (formSolicitar.style.display === 'none' || formSolicitar.style.display === '') {
         formSolicitar.style.display = 'block';
@@ -25,12 +27,69 @@ pesquisarButton.addEventListener('click', function() {
         formCadastro.style.display = 'none';
         formSolicitar.style.display = 'none';
         formUsuarios.style.display = 'none';
+
+        document.getElementById('formPesquisar').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const nomeItem = document.getElementById('NomeItemP').value;
+            const idItem = document.getElementById('Codigo').value;
+            let responseGetItem = '';
+
+            if (nomeItem != null && nomeItem != '') {
+                responseGetItem = await fetch(`https://localhost:5201/api/ItemCadastro/nome/${encodeURIComponent(nomeItem)}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+            } else if (idItem != null && idItem != '') {
+                responseGetItem = await fetch(`https://localhost:5201/api/ItemCadastro/${encodeURIComponent(idItem)}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+            } else {
+                console.log("Error: Nome ou Código do item precisa ser preenchido");
+                return;
+            }
+            
+            if (responseGetItem.ok) {
+                const dadosItem = await responseGetItem.json();
+                console.log(dadosItem);
+                
+                document.getElementById('itemId').textContent = dadosItem.idItem;
+                document.getElementById('itemNome').textContent = dadosItem.nomeItem;
+                document.getElementById('itemQuantidade').textContent = dadosItem.quantidade;
+                document.getElementById('itemDescricao').textContent = dadosItem.descricao;
+
+                if (dadosItem.imagemItem) {
+                    document.getElementById('itemFoto').src = `data:image/jpeg;base64,${dadosItem.imagemItem}`;
+                } else {
+                    document.getElementById('itemFoto').alt = "Imagem não disponível";
+                }
+                
+                document.getElementById('buttonItemExclusive1').style.display = 'inline';
+                if (userFunction === 'Admin') {
+                    document.getElementById('buttonItemExclusive2').style.display = 'inline';
+                    document.getElementById('buttonItemExclusive3').style.display = 'inline';
+                }
+                document.getElementById('conteudoLateral').style.display = 'block';
+                document.getElementById('itemInfo').classList.remove('hidden');
+
+            } else {
+                const messageDiv = document.getElementById('messagePesq');
+                messageDiv.innerText = 'Item não encontrado.';
+                messageDiv.className = 'error';
+                messageDiv.style.display = 'block';
+                return;
+            }
+        });
     } else {
         formPesquisar.style.display = 'none';
+        document.getElementById('itemInfo').classList.add('hidden');
     }
 })
-
-const userFunction = localStorage.getItem('userFunction');
 
 if (userFunction === 'Admin') {
     usuariosButton.style.display = 'inline';
@@ -69,7 +128,11 @@ if (userFunction === 'Admin') {
 
                     document.getElementById('userInfo').classList.remove('hidden');
                 } else {
-                    console.error;
+                    const messageDiv = document.getElementById('messageUser');
+                    messageDiv.innerText = 'Usuário não encontrado.';
+                    messageDiv.className = 'error';
+                    messageDiv.style.display = 'block';
+                    return;
                 }
             })
 

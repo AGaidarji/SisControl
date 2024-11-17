@@ -11,6 +11,24 @@ html, body {
     flex: 1;   
 }
 
+#messageCads, #messageSolic, #messagePesq, #messageUser {
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: white;
+    display: none;
+    text-align: center;
+}
+
+#messageCads.sucess, #messageSolic.sucess, #messagePesq.sucess, #messageUser.sucess {
+    color: green;
+}
+
+#messageCads.error, #messageSolic.error, #messagePesq.error, #messageUser.error {
+    color: red;
+}
+
 /*---------------- Menu Lateral --------------*/
 
 .menu-lateral {
@@ -46,9 +64,9 @@ button:hover {
     color: #091235;
 }
 
-/*.button-exclusive{
+.button-exclusive{
     display: none;
-}*/
+}
 
 .menu-user {
     color: #88A9C3;
@@ -115,6 +133,33 @@ select.campo_form {
     color: #88A9C3;
 }
 
+/*---------------- Parte do conteudo lateral direito --------------*/
+
+.conteudo-lateral {
+    display: none;
+    width: 350px;
+    height: 100%;
+    gap: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    border-right: 1px solid black;
+    background-color: #ffffff;
+}
+
+.header-section {
+    display: flex;
+    flex-direction: column; /* Alinha título e imagem verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    gap: 10px; /* Espaçamento entre o título e a imagem */
+    margin-bottom: 20px; /* Espaçamento para os próximos elementos */
+}
+
+.imgItem {
+    max-width: 100%; /* Ajusta a largura máxima para evitar overflow */
+    max-height: 200px; /* Define uma altura máxima para a imagem */
+    object-fit: contain; /* Garante que a imagem mantenha a proporção */
+}
+
 .user-info {
     display: flex;
     flex-direction: column;
@@ -155,19 +200,6 @@ select.campo_form {
 
 .hidden {
     display: none;
-}
-
-/*---------------- Parte do conteudo lateral direito --------------*/
-
-.conteudo-lateral {
-    display: none;
-    width: 300px;
-    height: 100%;
-    gap: 10px;
-    margin-right: 10px;
-    padding: 10px;
-    border-right: 1px solid black;
-    background-color: #ffffff;
 }
 
 

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SisControlApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f713bd0c58da3c047f5f7017393c3345e51e8726")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a7032fe20dc996525fc6cb888a69875af9a461db")]
 [assembly: System.Reflection.AssemblyProductAttribute("SisControlApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SisControlApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
