@@ -1,20 +1,8 @@
-<<<<<<< HEAD
-#message.success {
-    color: green;
-}
-
-#message.error {
-    color: red;
-}
-
-body {
-=======
 html, body {
     height: 100%;
     margin: 0;
     display: flex;
     flex-direction: column;
->>>>>>> 660e1e6b4015997ce28bf169824cbeccab6a8cb9
     font-family: Arial, sans-serif;
 }
 
@@ -150,13 +138,6 @@ select.campo_form {
     color: #88A9C3;
 }
 
-<<<<<<< HEAD
-.user-info {
-    display: flex;
-    flex-direction: column;
-    max-width: 600px;
-    justify-content: space-between;
-=======
 /*---------------- Parte do conteudo lateral direito --------------*/
 
 .conteudo-lateral {
@@ -186,7 +167,6 @@ select.campo_form {
     display: flex;
     flex-direction: column;
     max-width: 400px;
->>>>>>> 660e1e6b4015997ce28bf169824cbeccab6a8cb9
     margin: 20px auto;
     padding: 20px;
     background-color: #f9f9f9;
@@ -196,41 +176,13 @@ select.campo_form {
     color: #091235;
 }
 
-<<<<<<< HEAD
-.item-info {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    max-width: 500px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 2px solid #264257;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    color: #091235;
-}
-
-.item-info-inside {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.user-info p, .item-info p{
-=======
 .user-info p{
->>>>>>> 660e1e6b4015997ce28bf169824cbeccab6a8cb9
     display: flex;
     align-items: center;
     padding: 4px 2px;
 }
 
-<<<<<<< HEAD
-.user-info span, .item-info span {
-=======
 .user-info span {
->>>>>>> 660e1e6b4015997ce28bf169824cbeccab6a8cb9
     padding: 4px 8px;
     align-items: center;
 }
@@ -251,8 +203,6 @@ select.campo_form {
 
 .hidden {
     display: none;
-<<<<<<< HEAD
-=======
 }
 
 .buttons-item {
@@ -274,5 +224,4 @@ footer {
     background-color: #ddd;
     text-align: center;
     height: 20px;
->>>>>>> 660e1e6b4015997ce28bf169824cbeccab6a8cb9
 }
