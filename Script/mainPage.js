@@ -1,8 +1,9 @@
-const cadastrarButton = document.getElementById('cadastrarItem');
-const soliticarButton = document.getElementById('solicitarItem');
-const pesquisarButton = document.getElementById('pesquisarItem');
-const usuariosButton = document.getElementById('usuarios');
+const userFunction = localStorage.getItem('userFunction');
+const userFunctionLogin = localStorage.getItem('userFunctionLogin');
+const userNameLogin = localStorage.getItem('userNameLogin');
+const inProducao = localStorage.getItem('inProducao');
 
+<<<<<<< HEAD
 const formCadastro = document.getElementById('formCadastrar');
 const formSolicitar = document.getElementById('formSolicitar');
 const formPesquisar = document.getElementById('formPesquisar');
@@ -186,3 +187,8 @@ if (userFunction === 'Admin') {
         }
     })
 }
+=======
+const firstName = userNameLogin.split(' ');
+document.getElementById('userNameLogin').textContent = firstName[0];
+document.getElementById('userFunctionLogin').textContent = userFunctionLogin;
+>>>>>>> 660e1e6b4015997ce28bf169824cbeccab6a8cb9
