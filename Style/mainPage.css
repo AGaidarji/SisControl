@@ -57,7 +57,7 @@ button {
     background-color: #465280; /* Fundo dos botões */
     color: #88A9C3; /* Texto dos botões */
     border: none;
-    padding: 10px 20px;
+    padding: 10px 15px;
     margin: 5px;
     border-radius: 5px;
     font-size: 13px;
@@ -71,6 +71,23 @@ button:hover {
 
 .button-exclusive{
     display: none;
+}
+
+.button-close {
+    background-color: white;
+    position: absolute;
+    right: 10px;
+    transition: background-color 0.3s ease;
+    padding: 3px 6px;
+
+    & img {
+        width: 20px;
+    }
+}
+
+.button-close:hover {
+    background-color: #cf3030;
+    color: #091235;
 }
 
 .menu-user {
@@ -185,20 +202,23 @@ select.campo_form {
 .user-info span {
     padding: 4px 8px;
     align-items: center;
+    display: inline;
 }
 
 .p1, .p3{
     font-size: 1em;
     margin: 5px 0;
     padding: 5px;
+    margin-bottom: 10px;
     background-color: #88A9C3;
 }
 
 .p2, .p4{
     font-size: 1em;
-    margin: 5px 0;
+    margin: 0;
     padding: 5px;
-    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    background-color: #b1b1b1;
 }
 
 .hidden {
@@ -216,6 +236,18 @@ select.campo_form {
 .button-confirm {
     display: flex;
     justify-content: center;
+}
+
+.campo-alterarQt {
+    display: none;
+    width: 30%;
+    margin-left: 20px;
+}
+
+.campo-alterarDesc {
+    display: none;
+    width: 40%;
+    margin-left: 20px;
 }
 
 /*---------------- Footer --------------*/

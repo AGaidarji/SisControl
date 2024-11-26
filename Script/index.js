@@ -12,6 +12,12 @@ document.getElementById('loginForm').addEventListener('submit', async function (
         PasswordHash: passwordHash
     };
 
+    function showMessageDiv(message, className) {
+        messageDiv.innerText = message;
+        messageDiv.className = className;
+        messageDiv.style.display = 'block';
+    }
+
     if (inProducao === 'S') {
         response = await fetch('https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/UserCadastro/login', {
             method: 'POST',
@@ -35,9 +41,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     localStorage.setItem('userFunction', data.userFunction);
 
     if (response.ok) {
-        messageDiv.innerText = 'Login efetuado com sucesso.';
-        messageDiv.className = 'success'; // Classe para sucesso
-        messageDiv.style.display = 'block'; // Exibe a mensagem
+        showMessageDiv('Login efetuado com sucesso.', 'success')
 
         localStorage.setItem('userFunctionLogin', data.userFunctionLogin);
         localStorage.setItem('userNameLogin', data.userNameLogin);
@@ -47,10 +51,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
             window.location.href = 'mainPage.html';
         }, 1000)
     } else {
-        messageDiv.innerText = 'Email ou senha incorretos.';
-        messageDiv.className = 'error';
-        messageDiv.style.display = 'block';
-
+        showMessageDiv('Email ou senha incorretos.', 'error')
         return;
     }
 });

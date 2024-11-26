@@ -71,6 +71,7 @@
 
         <div id="conteudoLateral" class="conteudo-lateral">
             <div id="itemInfo" class="item-info hidden"> 
+                <button id="closeContainerDireita" class="button-close"><img src="https://img.icons8.com/?size=100&id=95771&format=png&color=000000" alt="Item para fechar conteudo lateral direita"></button>
                 <div class="header-section">
                     <h3>Dados do Item</h3>
                     <div>
@@ -79,10 +80,11 @@
                 </div>
                 <div class="item-info-inside">
                     <div>
-                        <p class="p1"><strong>Código: </strong> <span id="itemId"> </span></p>
-                        <p class="p2"><strong>Item: </strong> <span id="itemNome"> </span></p>
-                        <p class="p3"><strong>Quantidade: </strong> <span id="itemQuantidade"> </span></p>
-                        <p class="p4"><strong>Descrição: </strong> <span id="itemDescricao"> </span></p>
+                        <p class="p1"><strong>Código: </strong> <span id="itemId"></p>
+                        <p class="p2"><strong>Item: </strong> <span id="itemNome"></p>
+                        <p class="p3"><strong>Quantidade: </strong> <span id="itemQuantidade"> </span> <input type="number" name="Alterar Quantidade" id="alterarQuantidade" class="campo-alterarQt"></p>
+                        <p class="p4"><strong>Descrição: </strong> <span id="itemDescricao"> </span> <input type="text" name="Alterar Descrição" id="alterarDecricao" class="campo-alterarDesc"> </span></p>
+                        
                     </div>
                 </div>
                 <div class="buttons-item">
@@ -92,8 +94,8 @@
                 </div>
                 <div id="messageBtItens" class="messageBtItens"></div>
                 <div id="buttonConfirm" class="button-confirm">
-                    <button id="buttonItemAgree" style="display: none; color: #ffffff; background-color: green;">Sim, tenho certeza</button>
-                    <button id="buttonItemDegree" style="display: none; color: #ffffff; background-color: red;">Não, quero cancelar</button>
+                    <button id="buttonItemAgree" style="display: none; color: #ffffff; background-color: green;">Confirmar</button>
+                    <button id="buttonItemDegree" style="display: none; color: #ffffff; background-color: red;">Cancelar</button>
                 </div>
             </div>
         </div>

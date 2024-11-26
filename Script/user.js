@@ -9,7 +9,7 @@ function styleForms(styleFormCads, styleFormSolic, styleFormPesq, styleFormUser)
 };
 
 // Função para exibir mensagens
-function showMessage(message, className) {
+function showMessageUser(message, className) {
     messageUser.innerText = message;
     messageUser.className = className;
     messageUser.style.display = 'block';
@@ -46,7 +46,7 @@ if (userFunction === 'Admin') {
                     messageUser.style.display = 'none';
                     document.getElementById('userInfo').classList.remove('hidden');
                 } else {
-                    showMessage('Usuário não encontrado.', 'error')
+                    showMessageUser('Usuário não encontrado.', 'error')
                     return;
                 }
             })
