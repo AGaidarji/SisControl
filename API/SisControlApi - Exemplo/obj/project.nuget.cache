@@ -185,6 +185,12 @@
   ],
   "logs": [
     {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Projetos\\SisControl\\API\\SisControlApi - Exemplo\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
+    {
       "code": "NU1902",
       "level": "Warning",
       "warningLevel": 1,
