@@ -1,4 +1,4 @@
-localStorage.setItem('inProducao', inProducao = 'N');
+localStorage.setItem('inProducao', inProducao = 'S');
 
 document.getElementById('loginForm').addEventListener('submit', async function (event) {
     event.preventDefault();
