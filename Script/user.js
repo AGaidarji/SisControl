@@ -26,13 +26,23 @@ if (userFunction === 'Admin') {
                 event.preventDefault();
 
                 const cpf = document.getElementById('cpf').value;
+                let response = "";
 
-                const response = await fetch(`https://localhost:5201/api/UserCadastro/searchUser/${encodeURIComponent(cpf)}`, {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                })
+                if (inProducao === 'S') {
+                    response = await fetch(`https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/UserCadastro/searchUser/${encodeURIComponent(cpf)}`, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                } else {
+                    response = await fetch(`https://localhost:5201/api/UserCadastro/searchUser/${encodeURIComponent(cpf)}`, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                }
 
                 if (response.ok) {
                     const data = await response.json();
