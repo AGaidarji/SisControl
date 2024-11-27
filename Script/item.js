@@ -5,9 +5,11 @@ const closeContainerDireita = document.getElementById('closeContainerDireita');
 const formCadastro = document.getElementById('formCadastrar');
 const formPesquisar = document.getElementById('formPesquisar');
 
-closeContainerDireita.addEventListener('click', function () {
-    document.getElementById('conteudoLateral').style.display = 'none';
-    document.getElementById('itemInfo').classList.add('hidden');
+document.addEventListener('DOMContentLoaded', () => {
+    closeContainerDireita.addEventListener('click', function () {
+        document.getElementById('conteudoLateral').style.display = 'none';
+        document.getElementById('itemInfo').classList.add('hidden');
+    })
 })
 
 // Função para ocultar mensagem e botões de confirmação
@@ -115,23 +117,43 @@ document.getElementById('formPesquisar').addEventListener('submit', async functi
 
     try {
         if (nomeItem != null && nomeItem != '') {
-            responseGetItem = await fetch(`https://localhost:5201/api/ItemCadastro/nome/${encodeURIComponent(nomeItem)}`, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
+            if (inProducao === "S") {
+                responseGetItem = await fetch(`https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/ItemCadastro/nome/${encodeURIComponent(nomeItem)}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+            } else {
+                responseGetItem = await fetch(`https://localhost:5201/api/ItemCadastro/nome/${encodeURIComponent(nomeItem)}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+            }
+            
             if (responseGetItem.status === 404) {
                 showMessagePesq('Item não encontrado.', 'error')
             }
 
         } else if (idItem != null && idItem != '') {
-            responseGetItem = await fetch(`https://localhost:5201/api/ItemCadastro/${encodeURIComponent(idItem)}`, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
+            if (inProducao === "S") {
+                responseGetItem = await fetch(`https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/ItemCadastro/${encodeURIComponent(idItem)}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+            } else {
+                responseGetItem = await fetch(`https://localhost:5201/api/ItemCadastro/${encodeURIComponent(idItem)}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+            }
+
             if (responseGetItem.status === 404) {
                 showMessagePesq('Item não encontrado.', 'error')
             }
@@ -179,12 +201,21 @@ document.getElementById('formPesquisar').addEventListener('submit', async functi
                     // Confirmar exclusão
                     buttonItemAgree.addEventListener('click', async () => {
                         try {
-                            const response = await fetch(`https://localhost:5201/api/ItemCadastro/${encodeURIComponent(dadosItem.idItem)}`, {
-                                method: 'DELETE',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                },
-                            });
+                            if (inProducao === "S") {
+                                responseGetItem = await fetch(`https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/ItemCadastro/${encodeURIComponent(dadosItem.idItem)}`, {
+                                    method: 'DELETE',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                    },
+                                });
+                            } else {
+                                response = await fetch(`https://localhost:5201/api/ItemCadastro/${encodeURIComponent(dadosItem.idItem)}`, {
+                                    method: 'DELETE',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                    },
+                                });
+                            }
 
                             if (response.ok) {
                                 showMessageBtItens('Item excluído com sucesso!', 'success');
@@ -226,14 +257,21 @@ document.getElementById('formPesquisar').addEventListener('submit', async functi
                         buttonItemAgree.disabled = true;
 
                         try {
-                            const response = await fetch(`https://localhost:5201/api/ItemCadastro/${encodeURIComponent(dadosItem.idItem)}`, {
-                                method: 'PUT',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                    'Cache-Control': 'no-cache',
-                                },
-                                body: JSON.stringify(itemAtualizado),
-                            });
+                            if (inProducao === "S") {
+                                responseGetItem = await fetch(`https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/ItemCadastro/${encodeURIComponent(dadosItem.idItem)}`, {
+                                    method: 'PUT',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                    },
+                                });
+                            } else {
+                                response = await fetch(`https://localhost:5201/api/ItemCadastro/${encodeURIComponent(dadosItem.idItem)}`, {
+                                    method: 'PUT',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                    },
+                                });
+                            }
 
                             if (response.status == 204) {
                                 showMessageBtItens('Dados do item alterado com sucesso!', 'success');
