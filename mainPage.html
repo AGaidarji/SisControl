@@ -11,65 +11,6 @@
         <div class="menu-lateral">
             <h1 class="title-menu">SisControl</h1>
 
-    <form id="formCadastrar" class="form">
-        <input type="text" id="NomeItemC" placeholder="Nome Item" class="campo_form" required>
-        <input type="number" id="Quantidade" placeholder="Quantidade" class="campo_form" required>
-        <input type="text" id="Descricao" placeholder="Descrição" class="campo_form">
-        <input type="file" id="ImagemItem" name="foto" accept="image/jpeg,image/png" class="campo_form">
-        <div id="messageDiv" style="display:none;"></div>
-        <button id="submit" class="campo_form">Enviar</button>
-    </form>
-
-    <form id="formSolicitar" class="form">
-        <input type="text" id="NomeItem" placeholder="Nome Item" class="campo_form" required>
-        <input type="number" id="Quantidade" placeholder="Quantidade" class="campo_form" required>
-        <select id="eventos" class="campo_form">
-            <option value="" disabled selected>Selecione um evento</option>
-            <option value="assembleia">Assembleia</option>
-            <option value="congresso">Congresso</option>
-            <option value="celebracao">Celebração</option>
-            <option value="outros">Outros</option>
-        </select>
-        <input type="date" id="Data" placeholder="Data" class="campo_form" required>
-        <button id="submit" class="campo_form">Solicitar</button>
-    </form>
-
-    <form id="formPesquisar" class="form">
-        <input type="text" id="NomeItemP" placeholder="Nome Item" class="campo_form">
-        <input type="number" id="Codigo" placeholder="Código" class="campo_form">
-        <button id="submit" class="campo_form">Pesquisar</button>
-    </form>
-
-    <form id="formUsuarios" class="form">
-        <input type="text" id="cpf" name="CPF" placeholder="Informe o CPF do usuário" class="campo_form" required>
-        <button id="submit" class="campo_form">Pesquisar</button>
-    </form>
-    
-
-    <div id="userInfo" class="user-info hidden">
-        <h3>Dados do usuário</h3>
-        <p class="p1"><strong>Nome: </strong> <span id="userNome"> </span></p>
-        <p class="p2"><strong>Email: </strong> <span id="userEmail"> </span></p>
-        <p class="p3"><strong>Congregação: </strong> <span id="userCongregacao"> </span></p>
-        <p class="p4"><strong>Função: </strong> <span id="userFuncao"></span> </p>
-    </div>
-
-    <div id="itemInfo" class="item-info hidden">
-        <h3>Dados do Item</h3>
-        <div class="item-info-inside">
-            <div>
-                <p class="p1"><strong>Código: </strong> <span id="itemId"> </span></p>
-                <p class="p2"><strong>Item: </strong> <span id="itemNome"> </span></p>
-                <p class="p3"><strong>Quantidade: </strong> <span id="itemQuantidade"> </span></p>
-                <p class="p4"><strong>Descrição: </strong> <span id="itemDescricao"> </span></p>
-            </div>
-            <div>
-                <div>
-                    <img id="itemFoto" alt="Foto do produto">
-                </div>
-                <div>
-                    <button>Alterar</button>
-                    <button>Excluir</button>
             <button id="cadastrarItem" class="button-exclusive">Cadastrar novo item</button>
             <button id="solicitarItem">Solicitar item</button>
             <button id="pesquisarItem">Pesquisar item</button>
@@ -77,10 +18,10 @@
             <button id="meuPerfil">Meu perfil</button>
             <button id="meusPedidos">Meus pedidos</button>
             <button id="pedidosRecentes" class="button-exclusive">Últimos pedidos</button> 
-            
+
             <p class="menu-user"><strong>User: </strong><span id="userNameLogin"></span>/<span id="userFunctionLogin"></span></p>
         </div>
-    
+
         <div class="conteudo-main">
             <form id="formCadastrar" class="form">
                 <input type="text" id="NomeItemC" placeholder="Nome Item" class="campo_form" required>
@@ -90,7 +31,7 @@
                 <div id="messageCads" style="display:none;"></div>
                 <button id="submit" class="campo_form">Enviar</button>
             </form>
-        
+
             <form id="formSolicitar" class="form">
                 <input type="text" id="NomeItem" placeholder="Nome Item" class="campo_form" required>
                 <input type="number" id="Quantidade" placeholder="Quantidade" class="campo_form" required>
@@ -105,14 +46,14 @@
                 <div id="messageSolic" style="display:none;"></div>
                 <button id="submit" class="campo_form">Solicitar</button>
             </form>
-        
+
             <form id="formPesquisar" class="form">
                 <input type="text" id="NomeItemP" placeholder="Nome Item" class="campo_form">
                 <input type="number" id="Codigo" placeholder="Código" class="campo_form">
                 <div id="messagePesq" style="display:none;"></div>
                 <button id="submit" class="campo_form">Pesquisar</button>
             </form>
-        
+
             <form id="formUsuarios" class="form">
                 <input type="text" id="cpf" name="CPF" placeholder="Informe o CPF do usuário" class="campo_form" required>
                 <div id="messageUser" style="display:none;"></div>
@@ -159,9 +100,9 @@
             </div>
         </div>
     </div>
-    
+
     <footer>SisControl</footer>
-    
+
     <script src="./Script/index.js"></script>
     <script src="./Script/cadastro.js"></script>
     <script src="./Script/mainPage.js"></script>
