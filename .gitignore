@@ -1,8 +1,0 @@
-# Diretórios e arquivos de build
-/bin/
-/obj/
-/.vs/
-
-# Configurações específicas
-appsettings.json
-appsettings.Development.json
