@@ -1,6 +1,12 @@
 const cadastrarButton = document.getElementById('cadastrarItem');
 const pesquisarButton = document.getElementById('pesquisarItem');
 const closeContainerDireita = document.getElementById('closeContainerDireita');
+const buttonAlterItem = document.getElementById('buttonAlterItem');
+const buttonDelItem = document.getElementById('buttonDelItem');
+const buttonItemAgree = document.getElementById('buttonItemAgree');
+const buttonItemDegree = document.getElementById('buttonItemDegree');
+const alterarQuantidade = document.getElementById('alterarQuantidade');
+const alterarDescricao = document.getElementById('alterarDescricao');
 let idItem;
 
 const formCadastro = document.getElementById('formCadastrar');
@@ -23,7 +29,6 @@ function hideMessageAndButtons() {
 }
 
 // ================= Campo de Cadastro de item =================
-
 if (userFunction === 'Admin') {
     cadastrarButton.style.display = 'inline';
 
@@ -81,9 +86,7 @@ if (userFunction === 'Admin') {
     })
 }
 
-
 // ================= Campo de Pesquisa de item =================
-
 pesquisarButton.addEventListener('click', function () {
     if (formPesquisar.style.display === 'none' || formPesquisar.style.display === '') {
         formPesquisar.style.display = 'block';
@@ -184,18 +187,11 @@ document.getElementById('formPesquisar').addEventListener('submit', async functi
             document.getElementById('buttonAddItem').style.display = 'inline';
 
             if (userFunction === 'Admin') {
-                const buttonAlterItem = document.getElementById('buttonAlterItem');
-                const buttonDelItem = document.getElementById('buttonDelItem');
-                const buttonItemAgree = document.getElementById('buttonItemAgree');
-                const buttonItemDegree = document.getElementById('buttonItemDegree');
-                const alterarQuantidade = document.getElementById('alterarQuantidade');
-                const alterarDescricao = document.getElementById('alterarDescricao');
-
                 // Mostrar botões para Admin
                 buttonAlterItem.style.display = 'inline';
                 buttonDelItem.style.display = 'inline';
 
-                // ================ Evento para deletar item ======================
+                // ====================== Evento para deletar item ======================
                 buttonDelItem.addEventListener('click', () => {
                     showMessageBtItens("Essa ação é irreversível. Deseja excluir o item?", 'alert');
                     buttonItemAgree.style.display = 'inline';
@@ -237,9 +233,7 @@ document.getElementById('formPesquisar').addEventListener('submit', async functi
                     buttonItemDegree.addEventListener('click', hideMessageAndButtons);
                 });
 
-
-                // ==================== Evento para Alterar dados de um item ===============
-
+                // ====================== Evento para Alterar dados de um item ======================
                 buttonAlterItem.addEventListener('click', () => {
                     showMessageBtItens("Informe o que deseja alterar e depois confirme a alteração", 'default');
                     buttonItemAgree.style.display = 'inline';
@@ -253,17 +247,12 @@ document.getElementById('formPesquisar').addEventListener('submit', async functi
                         let responsePutItem;
                         const qtAlteracao =  document.getElementById('alterarQuantidade').value;
                         const dsAlteracao = document.getElementById('alterarDescricao').value;
-                        
-                        console.log(idItem)
-                        console.log(qtAlteracao)
-                        console.log(dsAlteracao)
 
                         const itemAtualizado = {
                             IdItem: idItem,
                             Quantidade: parseInt(qtAlteracao, 10),
                             Descricao: dsAlteracao
                         }
-                        console.log(itemAtualizado.IdItem, itemAtualizado.Quantidade, itemAtualizado.Descricao)
 
                         try {
                             if (inProducao === "S") {
