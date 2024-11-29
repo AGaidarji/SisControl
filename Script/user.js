@@ -1,5 +1,21 @@
-const usuariosButton = document.getElementById('usuarios');
+// Formulários
 const formUsuarios = document.getElementById('formUsuarios');
+
+// Campos de alteração
+const alterarCongregacao = document.getElementById('alterarCongregacao');
+const alterarFuncao = document.getElementById('Functions');
+
+// Botões
+const buttonUserAgree = document.getElementById('buttonUserAgree');
+const buttonUserDegree = document.getElementById('buttonUserDegree');
+const usuariosButton = document.getElementById('usuarios');
+const closeUserInfoBt = document.getElementById('closeUserInfo');
+const buttonEditUserInfo = document.getElementById('buttonEditUserInfo');
+
+// Variáveis iniciadas
+let userCongregacao;
+let userFunctionLocal = userFunction;
+let cpfUser;
 
 function styleForms(styleFormCads, styleFormSolic, styleFormPesq, styleFormUser) {
     formCadastro.style.display = styleFormCads;
@@ -8,15 +24,47 @@ function styleForms(styleFormCads, styleFormSolic, styleFormPesq, styleFormUser)
     formUsuarios.style.display = styleFormUser;
 };
 
-// Função para exibir mensagens
+// Função para fechar campo de dados do usuário
+document.addEventListener('DOMContentLoaded', () => {
+    closeUserInfoBt.addEventListener('click', function () {
+        document.getElementById('userInfo').classList.add('hidden');
+        messageBtUser.style.display = 'none';
+        showCamposAlterarAndButtons('none');
+    })
+})
+
+// Função para exibir ou esconder mensagens
+function showMessageBtUser(message, className) {
+    messageBtUser.innerText = message;
+    messageBtUser.className = className;
+    messageBtUser.style.display = 'block';
+}
+
 function showMessageUser(message, className) {
     messageUser.innerText = message;
     messageUser.className = className;
     messageUser.style.display = 'block';
 }
 
+function hideMessageAndButtons() {
+    messageBtUser.style.display = 'none';
+    buttonUserAgree.style.display = 'none';
+    buttonUserDegree.style.display = 'none';
+    alterarCongregacao.style.display = 'none';
+    alterarFuncao.style.display = 'none';
+}
+
+// Função para exibir botões
+function showCamposAlterarAndButtons (display) {
+    alterarCongregacao.style.display = display;
+    alterarFuncao.style.display = display;
+    buttonUserAgree.style.display = display;
+    buttonUserDegree.style.display = display;
+}
+
 if (userFunction === 'Admin') {
     usuariosButton.style.display = 'inline';
+    buttonEditUserInfo.style.display = 'inline'
 
     usuariosButton.addEventListener('click', function () {
         if (formUsuarios.style.display === 'none' || formUsuarios.style.display === '') {
@@ -26,6 +74,7 @@ if (userFunction === 'Admin') {
                 event.preventDefault();
 
                 const cpf = document.getElementById('cpf').value;
+                cpfUser = cpf;
                 let response = "";
 
                 if (inProducao === 'S') {
@@ -47,6 +96,8 @@ if (userFunction === 'Admin') {
                 if (response.ok) {
                     const data = await response.json();
                     console.log(data);
+                    userCongregacao = data.congregacao;
+
 
                     document.getElementById('userNome').textContent = data.nome;
                     document.getElementById('userEmail').textContent = data.email;
@@ -65,5 +116,68 @@ if (userFunction === 'Admin') {
             formUsuarios.style.display = 'none';
             document.getElementById('userInfo').classList.add('hidden');
         }
+    })
+
+    buttonEditUserInfo.addEventListener('click', async function() {
+        showMessageBtUser("Confirma a alteração?", 'alert')
+        showCamposAlterarAndButtons('inline');
+
+        buttonUserAgree.addEventListener('click', async function(){
+            let novaCongregacao = document.getElementById('alterarCongregacao').value;
+            let novaFuncao = document.getElementById('Functions').value;
+            let responsePutUser;
+
+            if(novaCongregacao === "" && novaFuncao === "") {
+                showMessageBtUser("Preencha pelo menos um dos campos", 'alert')
+                return;
+            } else if (novaCongregacao === "") {
+                novaCongregacao = userCongregacao
+            } else if (novaFuncao === "") {
+                novaFuncao = userFunctionLocal;
+            } 
+
+            const userUpdate = {
+                CpfUser: cpfUser,
+                NovaCongregacao: novaCongregacao,
+                NovaFuncao: novaFuncao
+            }
+
+            try {
+                console.log(userUpdate.CpfUser)
+                console.log(userUpdate.NovaCongregacao)
+                console.log(userUpdate.NovaFuncao)
+
+                if (inProducao === "S") {
+                    responsePutUser = await fetch(`https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/UserCadastro/${encodeURIComponent(userUpdate.CpfUser)}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(userUpdate)
+                    });
+                } else {
+                    responsePutUser = await fetch(`https://localhost:5201/api/UserCadastro/${encodeURIComponent(userUpdate.CpfUser)}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(userUpdate)
+                    });
+                }
+
+               
+                if (responsePutUser.status == 204) {
+                    showMessageBtUser('Dados do usuário alterado com sucesso!', 'success');
+                } else {
+                    showMessageBtUser('Erro ao alterar dados do usuário.', 'error');
+                }
+            } catch (error) {
+                showMessageBtUser('Erro ao alterar dados do usuário.', 'error');
+                console.error('Erro ao alterar item:', error);
+            } finally {
+                buttonUserAgree.disabled = false;
+                setTimeout(hideMessageAndButtons, 2000);
+            }
+        })
     })
 }

@@ -62,11 +62,32 @@
             </form>
 
             <div id="userInfo" class="user-info hidden">
-                <h3>Dados do usuário</h3>
+                <header class="user-info-header">
+                    <h3>Dados do usuário</h3>
+                    <div>
+                        <button id="buttonEditUserInfo" class="button-edit"><img src="https://img.icons8.com/?size=100&id=6697&format=png&color=000000" alt="Icone para alterar informações do usuario"></button>
+                        <button id="closeUserInfo" class="button-close-user-info"><img src="https://img.icons8.com/?size=100&id=95771&format=png&color=000000" alt="Icone para fechar container com informações do usuario"></button>    
+                    </div>
+                </header>
+
                 <p class="p1"><strong>Nome: </strong> <span id="userNome"> </span></p>
                 <p class="p2"><strong>Email: </strong> <span id="userEmail"> </span></p>
-                <p class="p3"><strong>Congregação: </strong> <span id="userCongregacao"> </span></p>
-                <p class="p4"><strong>Função: </strong> <span id="userFuncao"></span> </p>
+                <p class="p3"><strong>Congregação: </strong> <span id="userCongregacao"> </span> <input type="text" name="Alterar Congregação" id="alterarCongregacao" class="input-alterar-cong"> </p>
+                <p class="p4">
+                    <strong>Função: </strong> 
+                    <span id="userFuncao"></span> 
+                    <select id="Functions" class="select-edit-functions">
+                        <option value="" disabled selected>Selecione uma função</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Editor">Editor</option>
+                        <option value="Leitor">Leitor</option>
+                    </select> 
+                </p>
+                <div id="messageBtUser" class="messageBtUser"></div>
+                <div id="buttonConfirm" class="button-confirm">
+                    <button id="buttonUserAgree" style="display: none; color: #ffffff; background-color: green;">Confirmar</button>
+                    <button id="buttonUserDegree" style="display: none; color: #ffffff; background-color: red;">Cancelar</button>
+                </div>
             </div>
         </div>
 
