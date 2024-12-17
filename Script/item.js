@@ -9,6 +9,9 @@ const alterarQuantidade = document.getElementById('alterarQuantidade');
 const alterarDescricao = document.getElementById('alterarDescricao');
 let idItem;
 
+
+
+
 const formCadastro = document.getElementById('formCadastrar');
 const formPesquisar = document.getElementById('formPesquisar');
 
@@ -18,15 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('itemInfo').classList.add('hidden');
     })
 })
-
-// Função para ocultar mensagem e botões de confirmação
-function hideMessageAndButtons() {
-    messageBtItens.style.display = 'none';
-    buttonItemAgree.style.display = 'none';
-    buttonItemDegree.style.display = 'none';
-    alterarQuantidade.style.display = 'none';
-    alterarDescricao.style.display = 'none';
-}
 
 // ================= Campo de Cadastro de item =================
 if (userFunction === 'Admin') {
@@ -191,6 +185,15 @@ document.getElementById('formPesquisar').addEventListener('submit', async functi
                 buttonAlterItem.style.display = 'inline';
                 buttonDelItem.style.display = 'inline';
 
+                // Função para ocultar mensagem e botões de confirmação
+                function hideMessageAndButtons() {
+                    messageBtItens.style.display = 'none';
+                    buttonItemAgree.style.display = 'none';
+                    buttonItemDegree.style.display = 'none';
+                    alterarQuantidade.style.display = 'none';
+                    alterarDescricao.style.display = 'none';
+                }
+                
                 // ====================== Evento para deletar item ======================
                 buttonDelItem.addEventListener('click', () => {
                     showMessageBtItens("Essa ação é irreversível. Deseja excluir o item?", 'alert');
@@ -289,8 +292,8 @@ document.getElementById('formPesquisar').addEventListener('submit', async functi
                             setTimeout(hideMessageAndButtons, 2000);
                         }
                     });
-
-                    // Cancelar Alteração
+                    
+                    // Cancelar exclusão
                     buttonItemDegree.addEventListener('click', hideMessageAndButtons);
                 });
             }
