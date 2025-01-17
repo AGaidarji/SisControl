@@ -1,4 +1,4 @@
-// Botões
+// Botoes
 const solicitarButton = document.getElementById('solicitarItem');
 const pedidosButton = document.getElementById('pedidosRecentes');
 const buttonCarrinho = document.getElementById('buttonCarrinho');
@@ -10,6 +10,8 @@ const contentCarrinho = document.getElementById('contentCarrinho');
 
 // Variáveis para inicializar
 let carrinhoEmpty = "S";
+let responseGetItem;
+var listaItens = [];
 
 // Mostrar o formulário de solicitação
 solicitarButton?.addEventListener('click', function () {
@@ -20,6 +22,78 @@ solicitarButton?.addEventListener('click', function () {
         formSolicitar.style.display = 'none';
     }
 });
+
+function showMessageSolic(message, className) {
+    messageSolic.innerText = message;
+    messageSolic.className = className;
+    messageSolic.style.display = 'block';
+}
+
+document.getElementById('formSolicitar').addEventListener('submit', async function (event) {
+    event.preventDefault();
+    const NomeItem = document.getElementById('NomeItem').value;
+    const QuantidadePedida = parseInt(document.getElementById('QuantidadePedida').value, 10);
+
+    const request = JSON.stringify({
+        NomeItem,
+        QuantidadePedida
+    })
+
+    // Verifica se o item existe e a quantidade
+    if (inProducao === "S") {
+        responseGetItem = await fetch(`https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/PedidosModels/nome`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: request
+        })
+    } else {
+        responseGetItem = await fetch(`https://localhost:5201/api/PedidosModels/nome`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: request
+        })
+    }
+
+    console.log("Request JSON:", request);
+
+    try {
+        if (!responseGetItem.ok) {
+            const errorText = await responseGetItem.text();
+            console.error("Erro no pedido:", errorText);
+            showMessageSolic(errorText, 'error');
+            return;
+        } 
+        
+        const pedidoRequest = JSON.stringify({
+            Pedido: {
+                NomeUser: userNameLogin,
+                CpfUser: userCpfLogin,
+                Evento: document.getElementById('Evento').value,
+                DataEvento: document.getElementById('DataEvento').value
+            }
+        })
+
+        const Evento = document.getElementById('Evento').value;
+        const DataEvento = document.getElementById('DataEvento').value;
+
+        console.log(userNameLogin);
+        console.log(userCpfLogin);
+        console.log(Evento);
+        console.log(DataEvento);
+
+        // criar lógica para salvar os pedidos
+
+        showMessageSolic('Item adicionado ao carrinho!', 'success');
+
+    } catch (error) {
+        console.error("Erro ao enviar o pedido:", error);
+        showMessageSolic('Erro inesperado ao realizar o pedido', 'error');
+    }
+})
 
 // Mostrar o carrinho ao clicar no botão
 buttonCarrinho?.addEventListener('click', function () {

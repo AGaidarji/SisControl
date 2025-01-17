@@ -11,6 +11,9 @@
     <div class="top-bar">
         <h1 class="title-top-bar">SisControl</h1>
         <div>
+            <button id="buttonListItens" class="bt_top-bar">
+                <img src="https://img.icons8.com/?size=100&id=774&format=png&color=000000" alt="Icone lista itens">
+            </button>
             <button class="bt_top-bar">
                 <img src="https://img.icons8.com/?size=100&id=njxZ62glG44e&format=png&color=000000" alt="Icone perfil">
             </button>
@@ -47,15 +50,15 @@
 
             <form id="formSolicitar" class="form">
                 <input type="text" id="NomeItem" placeholder="Nome Item" class="campo_form" required>
-                <input type="number" id="Quantidade" placeholder="Quantidade" class="campo_form" required>
-                <select id="eventos" class="campo_form">
+                <input type="number" id="QuantidadePedida" placeholder="Quantidade" class="campo_form" required>
+                <select id="Evento" class="campo_form">
                     <option value="" disabled selected>Selecione um evento</option>
                     <option value="assembleia">Assembleia</option>
                     <option value="congresso">Congresso</option>
                     <option value="celebracao">Celebração</option>
                     <option value="outros">Outros</option>
                 </select>
-                <input type="date" id="Data" placeholder="Data" class="campo_form" required>
+                <input type="date" id="DataEvento" placeholder="Data" class="campo_form" required>
                 <div id="messageSolic" style="display:none;"></div>
                 <button id="submit" class="campo_form">Adicionar ao carrinho</button>
             </form>
@@ -99,6 +102,31 @@
                 <div id="buttonConfirm" class="button-confirm">
                     <button id="buttonUserAgree" style="display: none; color: #ffffff; background-color: green;">Confirmar</button>
                     <button id="buttonUserDegree" style="display: none; color: #ffffff; background-color: red;">Cancelar</button>
+                </div>
+            </div>
+
+            <div id="itemResumeContainer" class="item-resume">
+                <header class="itens-resume-header">
+                    <p> </p>
+                    <h3>Itens no estoque</h3>
+                    <div>
+                        <button id="closeItensResume" class="button-close-itens-resume"><img src="https://img.icons8.com/?size=100&id=95771&format=png&color=000000" alt="Icone para fechar container com informações dos itens"></button>    
+                    </div>
+                </header>
+                <div id="ItensResume" class="container-itens-resume">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Item</th>
+                                <th>Quantidade</th>
+                                <th>Descrição</th>
+                            </tr>
+                        </thead>
+                        <tbody id="itensTableBody">
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

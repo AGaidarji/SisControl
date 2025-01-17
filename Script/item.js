@@ -1,3 +1,4 @@
+// Botões
 const cadastrarButton = document.getElementById('cadastrarItem');
 const pesquisarButton = document.getElementById('pesquisarItem');
 const closeContainerDireita = document.getElementById('closeContainerDireita');
@@ -5,15 +6,21 @@ const buttonAlterItem = document.getElementById('buttonAlterItem');
 const buttonDelItem = document.getElementById('buttonDelItem');
 const buttonItemAgree = document.getElementById('buttonItemAgree');
 const buttonItemDegree = document.getElementById('buttonItemDegree');
+
+// Campos capturáveis
 const alterarQuantidade = document.getElementById('alterarQuantidade');
 const alterarDescricao = document.getElementById('alterarDescricao');
+
+// Variáveis pra iniciar
 let idItem;
+let responseGetTodosItens;
+let dadosTodosItens;
 
-
-
-
+// Formulários
 const formCadastro = document.getElementById('formCadastrar');
 const formPesquisar = document.getElementById('formPesquisar');
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
     closeContainerDireita.addEventListener('click', function () {
@@ -65,6 +72,9 @@ if (userFunction === 'Admin') {
                         showMessageCads('Não foi possível cadastrar o item.', 'error');
                     } else {
                         showMessageCads('Arquivo enviado com sucesso!', 'success');
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 2000);
                     }
                 } catch (error) {
                     console.error("Erro na requisição:", error);
@@ -228,7 +238,10 @@ document.getElementById('formPesquisar').addEventListener('submit', async functi
                             showMessageBtItens('Erro ao excluir o item.', 'error');
                             console.error('Erro ao deletar item:', error);
                         } finally {
-                            setTimeout(hideMessageAndButtons, 2000); // Oculta após 2 segundos
+                            setTimeout(() => {
+                                hideMessageAndButtons();
+                                window.location.reload();
+                            }, 2000);
                         }
                     });
 
@@ -248,8 +261,16 @@ document.getElementById('formPesquisar').addEventListener('submit', async functi
                     buttonItemAgree.addEventListener('click', async () => {
                         buttonItemAgree.disabled = true;
                         let responsePutItem;
-                        const qtAlteracao =  document.getElementById('alterarQuantidade').value;
-                        const dsAlteracao = document.getElementById('alterarDescricao').value;
+                        let qtAlteracao =  document.getElementById('alterarQuantidade').value;
+                        let dsAlteracao = document.getElementById('alterarDescricao').value;
+
+                        if (qtAlteracao == "" || qtAlteracao == null) {
+                            qtAlteracao = dadosItem.quantidade;
+                        }
+
+                        if (dsAlteracao == "" || dsAlteracao == null) {
+                            dsAlteracao = dadosItem.descricao;
+                        }
 
                         const itemAtualizado = {
                             IdItem: idItem,
@@ -278,7 +299,6 @@ document.getElementById('formPesquisar').addEventListener('submit', async functi
                                 });
                             }
 
-
                             if (responsePutItem.status == 204) {
                                 showMessageBtItens('Dados do item alterado com sucesso!', 'success');
                             } else {
@@ -289,7 +309,10 @@ document.getElementById('formPesquisar').addEventListener('submit', async functi
                             console.error('Erro ao alterar item:', error);
                         } finally {
                             buttonItemAgree.disabled = false;
-                            setTimeout(hideMessageAndButtons, 2000);
+                            setTimeout(() => {
+                                hideMessageAndButtons();
+                                window.location.reload();
+                            }, 2000);
                         }
                     });
                     

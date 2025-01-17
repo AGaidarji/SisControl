@@ -18,7 +18,7 @@ html, body {
     text-align: center;
 }
 
-#messageCads.sucess, #messageSolic.sucess, #messagePesq.sucess, #messageUser.sucess, #messageBtItens.success, #messageBtUser.success {
+#messageCads.success, #messageSolic.success, #messagePesq.success, #messageUser.success, #messageBtItens.success, #messageBtUser.success {
     color: green;
 }
 
@@ -161,6 +161,61 @@ select.campo_form {
     color: #88A9C3;
 }
 
+/*---------------- Código referente ao resumo dos itens --------------*/
+.item-resume {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 2px solid #264257;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    color: #091235;
+}
+
+table {
+    width: 100%;
+  }
+  
+td, th {
+border: 1px solid #dddddd;
+text-align: left;
+padding: 8px;
+}
+  
+tr:nth-child(even) {
+background-color: #dddddd;
+}
+
+.item-resume span {
+    padding: 4px 8px;
+    align-items: center;
+    display: inline;
+}
+
+.itens-resume-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.button-close-itens-resume {
+    padding: 7px;
+    background-color: #acb1c5;
+
+    & img {
+        width: 20px;
+    }
+}
+
+.button-close-itens-resume:hover {
+    background-color: red;
+}
+/*---------------- Fim do código referente ao dados do usuario --------------*/
+
+/*---------------- Código referente ao dados do usuario --------------*/
 .user-info {
     display: flex;
     flex-direction: column;
@@ -235,6 +290,8 @@ select.campo_form {
     padding: 5px;
     margin-left: 10px;
 }
+/*---------------- Fim do código referente ao dados do usuario --------------*/
+
 
 /*---------------- Parte do conteudo lateral direito --------------*/
 

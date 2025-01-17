@@ -45,6 +45,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
 
         localStorage.setItem('userFunctionLogin', data.userFunctionLogin);
         localStorage.setItem('userNameLogin', data.userNameLogin);
+        localStorage.setItem('userCpfLogin', data.userCpfLogin)
 
         //Levar para outra pagina após logado com sucesso
         setTimeout(() => {
