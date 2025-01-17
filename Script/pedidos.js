@@ -97,10 +97,16 @@ document.getElementById('formSolicitar').addEventListener('submit', async functi
 
 // Mostrar o carrinho ao clicar no botão
 buttonCarrinho?.addEventListener('click', function () {
-    contentCarrinho.classList.remove('hidden'); // Remove a classe 'hidden'
-    contentCarrinho.classList.add('show'); // Adiciona a classe 'show' (usada para transição)
-    document.body.classList.add('open-carrinho'); // Adiciona uma classe para a body (se precisar)
-
+    if (contentCarrinho.classList.contains('show')) {
+        contentCarrinho.classList.remove('show');
+        contentCarrinho.classList.add('hidden');
+        document.body.classList.remove('open-carrinho');
+    } else {
+        contentCarrinho.classList.remove('hidden');
+        contentCarrinho.classList.add('show');
+        document.body.classList.add('open-carrinho');
+    }
+    
     if (carrinhoEmpty == "S") {
         document.getElementById('carrinhoFull').style.display = 'none';
     } else {

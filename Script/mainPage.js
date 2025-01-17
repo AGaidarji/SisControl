@@ -73,6 +73,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     buttonListItens.addEventListener('click', function () {
-        document.getElementById('itemResumeContainer').style.display = 'flex';
+        const itemResumeContainer = document.getElementById('itemResumeContainer');
+        if (itemResumeContainer.style.display === 'flex') {
+            itemResumeContainer.style.display = 'none';
+        } else {
+            itemResumeContainer.style.display = 'flex';
+        }
     })
 })
