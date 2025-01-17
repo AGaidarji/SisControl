@@ -8,19 +8,34 @@
     <title>SisControl - Main Page</title>
 </head>
 <body>
+    <div class="top-bar">
+        <h1 class="title-top-bar">SisControl</h1>
+        <div>
+            <button id="buttonListItens" class="bt_top-bar">
+                <img src="https://img.icons8.com/?size=100&id=774&format=png&color=000000" alt="Icone lista itens">
+            </button>
+            <button class="bt_top-bar">
+                <img src="https://img.icons8.com/?size=100&id=njxZ62glG44e&format=png&color=000000" alt="Icone perfil">
+            </button>
+            <button id="buttonCarrinho" class="bt_top-bar">
+                <img src="https://img.icons8.com/?size=100&id=1ayE1XET4NWJ&format=png&color=000000" alt="Icone Carrinho">
+            </button>
+        </div>
+    </div>
     <div class="container-principal">
         <div class="menu-lateral">
-            <h1 class="title-menu">SisControl</h1>
-
-            <button id="cadastrarItem" class="button-exclusive">Cadastrar novo item</button>
-            <button id="solicitarItem">Solicitar item</button>
-            <button id="pesquisarItem">Pesquisar item</button>
-            <button id="usuarios" class="button-exclusive">Usuários</button>  
-            <button id="meuPerfil">Meu perfil</button>
-            <button id="meusPedidos">Meus pedidos</button>
-            <button id="pedidosRecentes" class="button-exclusive">Últimos pedidos</button> 
-
-            <p class="menu-user"><strong>User: </strong><span id="userNameLogin"></span>/<span id="userFunctionLogin"></span></p>
+            <div class="bts-menu-lateral">
+                <button id="cadastrarItem" class="button-exclusive">Cadastrar novo item</button>
+                <button id="solicitarItem">Solicitar item</button>
+                <button id="pesquisarItem">Pesquisar item</button>
+                <button id="usuarios" class="button-exclusive">Usuários</button>  
+                <button id="meuPerfil">Meu perfil</button>
+                <button id="meusPedidos">Meus pedidos</button>
+                <button id="pedidosRecentes" class="button-exclusive">Últimos pedidos</button>
+            </div>
+            <div>
+                <p class="menu-user"><strong>User: </strong><span id="userNameLogin"></span>/<span id="userFunctionLogin"></span></p>
+            </div>
         </div>
 
         <div class="conteudo-main">
@@ -35,17 +50,17 @@
 
             <form id="formSolicitar" class="form">
                 <input type="text" id="NomeItem" placeholder="Nome Item" class="campo_form" required>
-                <input type="number" id="Quantidade" placeholder="Quantidade" class="campo_form" required>
-                <select id="eventos" class="campo_form">
+                <input type="number" id="QuantidadePedida" placeholder="Quantidade" class="campo_form" required>
+                <select id="Evento" class="campo_form">
                     <option value="" disabled selected>Selecione um evento</option>
                     <option value="assembleia">Assembleia</option>
                     <option value="congresso">Congresso</option>
                     <option value="celebracao">Celebração</option>
                     <option value="outros">Outros</option>
                 </select>
-                <input type="date" id="Data" placeholder="Data" class="campo_form" required>
+                <input type="date" id="DataEvento" placeholder="Data" class="campo_form" required>
                 <div id="messageSolic" style="display:none;"></div>
-                <button id="submit" class="campo_form">Solicitar</button>
+                <button id="submit" class="campo_form">Adicionar ao carrinho</button>
             </form>
 
             <form id="formPesquisar" class="form">
@@ -89,8 +104,34 @@
                     <button id="buttonUserDegree" style="display: none; color: #ffffff; background-color: red;">Cancelar</button>
                 </div>
             </div>
+
+            <div id="itemResumeContainer" class="item-resume">
+                <header class="itens-resume-header">
+                    <p> </p>
+                    <h3>Itens no estoque</h3>
+                    <div>
+                        <button id="closeItensResume" class="button-close-itens-resume"><img src="https://img.icons8.com/?size=100&id=95771&format=png&color=000000" alt="Icone para fechar container com informações dos itens"></button>    
+                    </div>
+                </header>
+                <div id="ItensResume" class="container-itens-resume">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Item</th>
+                                <th>Quantidade</th>
+                                <th>Descrição</th>
+                            </tr>
+                        </thead>
+                        <tbody id="itensTableBody">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
+        <!-- -->
         <div id="conteudoLateral" class="conteudo-lateral">
             <div id="itemInfo" class="item-info hidden"> 
                 <button id="closeContainerDireita" class="button-close"><img src="https://img.icons8.com/?size=100&id=95771&format=png&color=000000" alt="Item para fechar conteudo lateral direita"></button>
@@ -119,6 +160,21 @@
                     <button id="buttonItemAgree" style="display: none; color: #ffffff; background-color: green;">Confirmar</button>
                     <button id="buttonItemDegree" style="display: none; color: #ffffff; background-color: red;">Cancelar</button>
                 </div>
+            </div>
+        </div>
+        
+        <!-- Menu do Carrinho -->
+        <div id="contentCarrinho" class="content-carrinho hidden">
+            <div class="resume-content">
+                <h4>Total</h4>
+                <p id="carrinhoFull" class="itensCarrinhoResume">
+                    <strong>Itens:</strong> <span id="itemNome"></span>
+                </p>
+                <p id="carrinhoEmpty" class="itensCarrinhoResume">
+                    <strong>Seu carrinho está vazio</strong>
+                </p>
+                <button id="fecharCarrinho">Fechar</button>
+                <button>Ir para o carrinho</button>
             </div>
         </div>
     </div>

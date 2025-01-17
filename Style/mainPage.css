@@ -1,14 +1,11 @@
+/*---------------- Variaveis gerais --------------*/
+
 html, body {
     height: 100%;
     margin: 0;
     display: flex;
     flex-direction: column;
     font-family: Arial, sans-serif;
-}
-
-.container-principal {
-    display: flex;
-    flex: 1;   
 }
 
 #messageCads, #messageSolic, #messagePesq, #messageUser, #messageBtItens, #messageBtUser {
@@ -21,7 +18,7 @@ html, body {
     text-align: center;
 }
 
-#messageCads.sucess, #messageSolic.sucess, #messagePesq.sucess, #messageUser.sucess, #messageBtItens.success, #messageBtUser.success {
+#messageCads.success, #messageSolic.success, #messagePesq.success, #messageUser.success, #messageBtItens.success, #messageBtUser.success {
     color: green;
 }
 
@@ -34,28 +31,56 @@ html, body {
     font-weight: bold;
 }
 
+/*---------------- Barra do topo --------------*/
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 30px 5px 50px;
+    background-color: #091235
+}
+
+.title-top-bar {
+    color: #88A9C3;
+    font-size: 25px;
+    text-align: center; 
+}
+
+.bt_top-bar {
+    padding: 5px 10px 5px 10px;
+    background-color:#ddd;
+    & img {
+        width: 35px;
+    }
+}
+
+.container-principal {
+    display: flex;
+    flex: 1;   
+}
+
 /*---------------- Menu Lateral --------------*/
 
 .menu-lateral {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 200px;
-    height: 100%;
-    gap: 10px;
-    padding: 10px;
+    height: 99%;
+    padding: 15px 10px 10px 10px;
     border-right: 1px solid black;
-    background-color: #091235;
+    background-color: #141541;
 }
 
-.title-menu {
-    color: #88A9C3;
-    font-size: 18px;
-    text-align: center; 
+.bts-menu-lateral {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 button {
     background-color: #465280; /* Fundo dos botões */
-    color: #88A9C3; /* Texto dos botões */
+    color: #f3f3f3; /* Texto dos botões */
     border: none;
     padding: 10px 15px;
     margin: 5px;
@@ -66,7 +91,7 @@ button {
 
 button:hover {
     background-color: #88A9C3;
-    color: #091235;
+    color: #000207;
 }
 
 .button-exclusive{
@@ -77,8 +102,6 @@ button:hover {
     color: #88A9C3;
     font-size: 15px;
     text-align: center;
-    position: absolute;
-    bottom: 20px;
 }
 
 /*---------------- Parte Central do conteúdo --------------*/
@@ -138,6 +161,61 @@ select.campo_form {
     color: #88A9C3;
 }
 
+/*---------------- Código referente ao resumo dos itens --------------*/
+.item-resume {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 2px solid #264257;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    color: #091235;
+}
+
+table {
+    width: 100%;
+  }
+  
+td, th {
+border: 1px solid #dddddd;
+text-align: left;
+padding: 8px;
+}
+  
+tr:nth-child(even) {
+background-color: #dddddd;
+}
+
+.item-resume span {
+    padding: 4px 8px;
+    align-items: center;
+    display: inline;
+}
+
+.itens-resume-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.button-close-itens-resume {
+    padding: 7px;
+    background-color: #acb1c5;
+
+    & img {
+        width: 20px;
+    }
+}
+
+.button-close-itens-resume:hover {
+    background-color: red;
+}
+/*---------------- Fim do código referente ao dados do usuario --------------*/
+
+/*---------------- Código referente ao dados do usuario --------------*/
 .user-info {
     display: flex;
     flex-direction: column;
@@ -212,6 +290,8 @@ select.campo_form {
     padding: 5px;
     margin-left: 10px;
 }
+/*---------------- Fim do código referente ao dados do usuario --------------*/
+
 
 /*---------------- Parte do conteudo lateral direito --------------*/
 
@@ -284,6 +364,44 @@ select.campo_form {
     width: 40%;
     margin-left: 20px;
     border-radius: 10px;
+}
+
+/*---------------- Conteudo lateral do carrinho --------------*/
+
+/* Classe para ocultar o carrinho */
+.hidden {
+    display: none;
+}
+
+/* Classe para mostrar o carrinho com transição */
+.show {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 300px; /* Largura do menu */
+    background-color: #f5f5f5;
+    box-shadow: -3px 0 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.open-carrinho {
+    padding-right: 300px; /* Empurra o conteúdo do body */
+}
+
+.resume-content {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    border-bottom: solid 1px #000207;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    & h4, p, button {
+        margin: 5px;
+    }
 }
 
 /*---------------- Footer --------------*/
