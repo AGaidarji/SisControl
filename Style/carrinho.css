@@ -1,0 +1,40 @@
+/* Classe para ocultar o carrinho */
+.hidden {
+    display: none;
+}
+
+/* Classe para mostrar o carrinho com transição */
+.show {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 300px; /* Largura do menu */
+    background-color: #f5f5f5;
+    box-shadow: -3px 0 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.open-carrinho {
+    padding-right: 300px; /* Empurra o conteúdo do body */
+}
+
+.resume-content {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    border-bottom: solid 1px #000207;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    & h4, p, button {
+        margin: 5px;
+    }
+}
+
+.tableCarrinho {
+    margin: 5px 10px 5px 10px;
+}
+

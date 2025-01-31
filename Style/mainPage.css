@@ -335,10 +335,6 @@ background-color: #dddddd;
     object-fit: contain; /* Garante que a imagem mantenha a proporção */
 }
 
-.hidden {
-    display: none;
-}
-
 .buttons-item {
     display: flex;
     justify-content: center;
@@ -364,44 +360,6 @@ background-color: #dddddd;
     width: 40%;
     margin-left: 20px;
     border-radius: 10px;
-}
-
-/*---------------- Conteudo lateral do carrinho --------------*/
-
-/* Classe para ocultar o carrinho */
-.hidden {
-    display: none;
-}
-
-/* Classe para mostrar o carrinho com transição */
-.show {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 300px; /* Largura do menu */
-    background-color: #f5f5f5;
-    box-shadow: -3px 0 5px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
-}
-
-.open-carrinho {
-    padding-right: 300px; /* Empurra o conteúdo do body */
-}
-
-.resume-content {
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    border-bottom: solid 1px #000207;
-    padding-top: 5px;
-    padding-bottom: 5px;
-
-    & h4, p, button {
-        margin: 5px;
-    }
 }
 
 /*---------------- Footer --------------*/

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Style/mainPage.css">
+    <link rel="stylesheet" href="Style/carrinho.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <title>SisControl - Main Page</title>
 </head>
@@ -167,12 +168,22 @@
         <div id="contentCarrinho" class="content-carrinho hidden">
             <div class="resume-content">
                 <h4>Total</h4>
-                <p id="carrinhoFull" class="itensCarrinhoResume">
-                    <strong>Itens:</strong> <span id="itemNome"></span>
-                </p>
-                <p id="carrinhoEmpty" class="itensCarrinhoResume">
+                <p id="carrinhoEmpty" class="itensCarrinhoResume hidden">
                     <strong>Seu carrinho está vazio</strong>
                 </p>
+                <div id="carrinhoFull" class="tableCarrinho hidden">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="text-align: center;">Item</th>
+                                <th style="text-align: center;">Quantidade</th>
+                            </tr>
+                        </thead>
+                        <tbody id="itensTableCarrinho">
+
+                        </tbody>
+                    </table>
+                </div>
                 <button id="fecharCarrinho">Fechar</button>
                 <button>Ir para o carrinho</button>
             </div>
