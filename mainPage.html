@@ -50,30 +50,30 @@
             </form>
 
             <form id="formSolicitar" class="form">
-                <input type="text" id="NomeItem" placeholder="Nome Item" class="campo_form" required>
+                <input type="text" id="NomeItem" placeholder="Nome Item" class="campo_form"  required>
                 <input type="number" id="QuantidadePedida" placeholder="Quantidade" class="campo_form" required>
                 <select id="Evento" class="campo_form">
                     <option value="" disabled selected>Selecione um evento</option>
-                    <option value="assembleia">Assembleia</option>
-                    <option value="congresso">Congresso</option>
-                    <option value="celebracao">Celebração</option>
-                    <option value="outros">Outros</option>
+                    <option value="Assembleia">Assembleia</option>
+                    <option value="Congresso">Congresso</option>
+                    <option value="Celebração">Celebração</option>
+                    <option value="Outros">Outros</option>
                 </select>
                 <input type="date" id="DataEvento" placeholder="Data" class="campo_form" required>
-                <div id="messageSolic" style="display:none;"></div>
+                <div id="messageSolic"></div>
                 <button id="submit" class="campo_form">Adicionar ao carrinho</button>
             </form>
 
             <form id="formPesquisar" class="form">
                 <input type="text" id="NomeItemP" placeholder="Nome Item" class="campo_form">
                 <input type="number" id="Codigo" placeholder="Código" class="campo_form">
-                <div id="messagePesq" style="display:none;"></div>
+                <div id="messagePesq"></div>
                 <button id="submit" class="campo_form">Pesquisar</button>
             </form>
 
             <form id="formUsuarios" class="form">
                 <input type="text" id="cpf" name="CPF" placeholder="Informe o CPF do usuário" class="campo_form" required>
-                <div id="messageUser" style="display:none;"></div>
+                <div id="messageUser"></div>
                 <button id="submit" class="campo_form">Pesquisar</button>
             </form>
 
@@ -99,11 +99,39 @@
                         <option value="Leitor">Leitor</option>
                     </select> 
                 </p>
-                <div id="messageBtUser" class="messageBtUser"></div>
+                <div id="messageBtUser"></div>
                 <div id="buttonConfirm" class="button-confirm">
                     <button id="buttonUserAgree" style="display: none; color: #ffffff; background-color: green;">Confirmar</button>
                     <button id="buttonUserDegree" style="display: none; color: #ffffff; background-color: red;">Cancelar</button>
                 </div>
+            </div>
+
+            <div id="pedidoResume" class="pedido-resume">
+                <header class="pedido-resume-header">
+                    <p> </p>
+                    <h3>Carrinho</h3>
+                    <div>
+                        <button id="pedidoResumeClose" class="pedido-resume-close"><img src="https://img.icons8.com/?size=100&id=95771&format=png&color=000000" alt="Icone para fechar container com informações dos itens"></button>    
+                    </div>
+                </header>
+                <div id="ItensCarrinho" class="container-itens-carrinho">
+                    <p><strong>Solicitante: </strong> <span id="userNamePedido"></span</p>
+                    <p><strong>Evento: </strong> <span id="nomeEvento"></p>
+                    <p><strong>Data: </strong> <span id="dataEvento">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="text-align: center;">Código</th>
+                                <th style="text-align: center;">Item</th>
+                                <th style="text-align: center;">Quantidade solicitada</th>
+                            </tr>
+                        </thead>
+                        <tbody id="itensCarrinhoBody">
+        
+                        </tbody>
+                    </table>
+                </div>
+                <button id="btnConcluirPedido">Concluir Pedido</button>
             </div>
 
             <div id="itemResumeContainer" class="item-resume">
@@ -125,7 +153,7 @@
                             </tr>
                         </thead>
                         <tbody id="itensTableBody">
-
+                            
                         </tbody>
                     </table>
                 </div>
@@ -156,7 +184,7 @@
                     <button id="buttonAlterItem" class="button-exclusive">Alterar</button>
                     <button id="buttonDelItem" class="button-exclusive">Excluir</button>
                 </div>
-                <div id="messageBtItens" class="messageBtItens"></div>
+                <div id="messageBtItens"></div>
                 <div id="buttonConfirm" class="button-confirm">
                     <button id="buttonItemAgree" style="display: none; color: #ffffff; background-color: green;">Confirmar</button>
                     <button id="buttonItemDegree" style="display: none; color: #ffffff; background-color: red;">Cancelar</button>
@@ -184,8 +212,9 @@
                         </tbody>
                     </table>
                 </div>
+                <div id="messageCarrinho"></div>
                 <button id="fecharCarrinho">Fechar</button>
-                <button>Ir para o carrinho</button>
+                <button id="finalizarPedido">Finalizar Pedido</button>
             </div>
         </div>
     </div>
@@ -198,5 +227,7 @@
     <script src="./Script/item.js"></script>
     <script src="./Script/user.js"></script>
     <script src="./Script/pedidos.js"></script>
+    <script src="./Script/Components/buttons.js"></script>
+    <script src="./Script/Components/messages.js"></script>
 </body>
 </html>

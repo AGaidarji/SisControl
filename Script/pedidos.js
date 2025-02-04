@@ -3,44 +3,32 @@ const solicitarButton = document.getElementById('solicitarItem');
 const pedidosButton = document.getElementById('pedidosRecentes');
 const buttonCarrinho = document.getElementById('buttonCarrinho');
 const fecharCarrinho = document.getElementById('fecharCarrinho');
+const finalizarPedidoButton = document.getElementById('finalizarPedido');
+const pedidoResume = document.getElementById('pedidoResume');
+const pedidoResumeClose = document.getElementById('pedidoResumeClose');
 
 // Formulários
 const formSolicitar = document.getElementById('formSolicitar');
 const contentCarrinho = document.getElementById('contentCarrinho');
 
 // Variáveis para inicializar
-let carrinhoEmpty = "S";
 let responseGetItem;
-const listItensPedidos = JSON.parse(localStorage.getItem('carrinho')) || []; // Recupera o carrinho salvo
+const userNamePedido = localStorage.getItem('userNameLogin');
+let Evento = JSON.parse(localStorage.getItem('pedidoEvento'));
+let DataEvento = JSON.parse(localStorage.getItem('pedidoData'));
+const listItensPedidos = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+document.addEventListener('DOMContentLoaded', () => {
+    verificarCarrinho();
+    atualizarCarrinho();
+});
 
 // Exibir botão pedidos apenas para Admin
 if (userFunction === 'Admin') {
     pedidosButton.style.display = 'inline';
 }
 
-// Mostrar o carrinho ao clicar no botão
-buttonCarrinho?.addEventListener('click', function () {
-    if (contentCarrinho.classList.contains('show')) {
-        contentCarrinho.classList.remove('show');
-        contentCarrinho.classList.add('hidden');
-        document.body.classList.remove('open-carrinho');
-    } else {
-        contentCarrinho.classList.remove('hidden');
-        contentCarrinho.classList.add('show');
-        document.body.classList.add('open-carrinho');
-    }
-    
-    verificarCarrinho();
-});
-
-// Fechar o carrinho ao clicar no botão
-fecharCarrinho?.addEventListener('click', function () {
-    contentCarrinho.classList.add('hidden'); // Adiciona 'hidden' novamente
-    contentCarrinho.classList.remove('show');
-    document.body.classList.remove('open-carrinho');
-});
-
-document.addEventListener('DOMContentLoaded', atualizarCarrinho);
+// --------------- Functions --------------- 
 
 function verificarCarrinho() {
     const carrinhoFull = document.getElementById('carrinhoFull');
@@ -52,11 +40,11 @@ function verificarCarrinho() {
     } else {
         carrinhoFull.style.display = 'block';
         carrinhoEmpty.style.display = 'none';
+        showMessageCarrinho('', 'none');
     }
 
     atualizarCarrinho();
 }
-
 
 function atualizarCarrinho() {
     const tableBody = document.getElementById('itensTableCarrinho');
@@ -65,37 +53,103 @@ function atualizarCarrinho() {
     listItensPedidos.forEach(item => {
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td style="text-align: center;">${item.NomeItem}</td>
-            <td style="text-align: center;">${item.QuantidadePedida}</td>
+            <td style="text-align: center;">${item.NomePedidoRequest}</td>
+            <td style="text-align: center;">${item.QuantPedidoRequest}</td>
         `;
         tableBody.appendChild(row);
     });
 }
 
-// Mostrar o formulário de solicitação
-solicitarButton?.addEventListener('click', function () {
-    if (formSolicitar.style.display === 'none' || formSolicitar.style.display === '') {
-        styleForms('none', 'block', 'none', 'none');
-        document.getElementById('userInfo').classList.add('hidden');
-    } else {
-        formSolicitar.style.display = 'none';
-    }
-});
+function montarResumoCarrinho() {
+    document.getElementById('userNamePedido').textContent = userNamePedido;
+    document.getElementById('nomeEvento').textContent = Evento;
+    document.getElementById('dataEvento').textContent = DataEvento;
 
-function showMessageSolic(message, className) {
-    messageSolic.innerText = message;
-    messageSolic.className = className;
-    messageSolic.style.display = 'block';
+    const tableBody = document.getElementById('itensCarrinhoBody');
+    tableBody.innerHTML = '';
+
+    listItensPedidos.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td style="text-align: center;">${item.IdPedidoRequest}</td>
+            <td style="text-align: center;">${item.NomePedidoRequest}</td>
+            <td style="text-align: center;">${item.QuantPedidoRequest}</td>
+        `;
+
+        // Coluna: Botão Alterar
+        const tdAlterar = document.createElement('td');
+        tdAlterar.style.textAlign = 'center';
+        const btnSomar = document.createElement('button');
+        const btnDiminuir = document.createElement('button');
+        btnSomar.className = "btn-table-alterar";
+        btnSomar.textContent = "+";
+        btnDiminuir.className = "btn-table-alterar";
+        btnDiminuir.textContent = "-";
+        btnSomar.addEventListener('click', function() {
+            const itemAlterar = listItensPedidos.indexOf(item);
+            addItem(itemAlterar);
+        });
+        btnDiminuir.addEventListener('click', function() {
+            const itemAlterar = listItensPedidos.indexOf(item);
+            removeItem(itemAlterar);
+        });
+        tdAlterar.appendChild(btnDiminuir);
+        tdAlterar.appendChild(btnSomar);
+        row.appendChild(tdAlterar);
+
+        // Coluna: Botão Delete
+        const tdDelete = document.createElement('td');
+        tdDelete.style.textAlign = 'center';
+        const btnDelete = document.createElement('button');
+        btnDelete.className = "btn-table-delete"
+        btnDelete.textContent = "Delete";
+        btnDelete.addEventListener('click', function() {
+            const itemExcluir = listItensPedidos.indexOf(item);
+            deletarItem(itemExcluir);
+        });
+        tdDelete.appendChild(btnDelete);
+        row.appendChild(tdDelete);
+        
+        tableBody.appendChild(row);
+    });
 }
+
+function deletarItem(itemExcluir) {
+    listItensPedidos.splice(itemExcluir, 1);
+    localStorage.setItem('carrinho', JSON.stringify(listItensPedidos));
+    atualizarCarrinho();
+    verificarCarrinho()
+    montarResumoCarrinho();
+}
+
+function addItem(itemAlterar) {
+    listItensPedidos[itemAlterar].QuantPedidoRequest += 1;
+    localStorage.setItem('carrinho', JSON.stringify(listItensPedidos));
+    atualizarCarrinho();
+    verificarCarrinho()
+    montarResumoCarrinho();
+}
+
+function removeItem(itemAlterar) {
+    listItensPedidos[itemAlterar].QuantPedidoRequest -= 1;
+    localStorage.setItem('carrinho', JSON.stringify(listItensPedidos));
+    atualizarCarrinho();
+    verificarCarrinho()
+    montarResumoCarrinho();
+}
+
+// --------------- Métodos --------------- 
 
 document.getElementById('formSolicitar').addEventListener('submit', async function (event) {
     event.preventDefault();
+    Evento = document.getElementById('Evento').value;
+    DataEvento = document.getElementById('DataEvento').value;
     const NomeItem = document.getElementById('NomeItem').value;
     const QuantidadePedida = parseInt(document.getElementById('QuantidadePedida').value, 10);
 
     const request = JSON.stringify({
-        NomeItem,
-        QuantidadePedida
+        NomeItem: NomeItem,
+        QuantidadePedida: QuantidadePedida
     })
 
     // Verifica se o item existe e a quantidade
@@ -116,7 +170,6 @@ document.getElementById('formSolicitar').addEventListener('submit', async functi
             body: request
         })
     }
-
     console.log("Request JSON:", request);
 
     try {
@@ -126,32 +179,25 @@ document.getElementById('formSolicitar').addEventListener('submit', async functi
             showMessageSolic(errorText, 'error');
             return;
         } 
-        
-        const pedidoRequest = JSON.stringify({
-            Pedido: {
-                NomeUser: userNameLogin,
-                CpfUser: userCpfLogin,
-                Evento: document.getElementById('Evento').value,
-                DataEvento: document.getElementById('DataEvento').value
-            }
-        })
-
-        const Evento = document.getElementById('Evento').value;
-        const DataEvento = document.getElementById('DataEvento').value;
-
-        console.log(userNameLogin);
-        console.log(userCpfLogin);
-        console.log(Evento);
-        console.log(DataEvento);
+        const itensPedido = await responseGetItem.json();
 
         // Adiciona o item ao carrinho e salva no LocalStorage
-        listItensPedidos.push({ NomeItem, QuantidadePedida });
+        const IdPedidoRequest = itensPedido.idItem;
+        const NomePedidoRequest = itensPedido.nomeItem
+        const QuantPedidoRequest = itensPedido.quantidadePedida
+        
+        listItensPedidos.push({ IdPedidoRequest, NomePedidoRequest, QuantPedidoRequest });
         localStorage.setItem('carrinho', JSON.stringify(listItensPedidos));
-
-        console.log("Lista de itens no carrinho:", listItensPedidos);
+        localStorage.setItem('pedidoEvento', JSON.stringify(Evento));
+        localStorage.setItem('pedidoData', JSON.stringify(DataEvento));
 
         atualizarCarrinho();
         verificarCarrinho();
+        
+    
+        let DataFormatada = DataEvento.split('-');
+        DataEvento = `${DataFormatada[2]}/${DataFormatada[1]}/${DataFormatada[0]}`;
+        montarResumoCarrinho();
 
         showMessageSolic('Item adicionado ao carrinho!', 'success');
     } catch (error) {
@@ -160,6 +206,12 @@ document.getElementById('formSolicitar').addEventListener('submit', async functi
     }
 })
 
-document.addEventListener('DOMContentLoaded', () => {
-    verificarCarrinho();
-});
+
+const pedidoRequest = JSON.stringify({
+    Pedido: {
+        NomeUser: userNameLogin,
+        CpfUser: userCpfLogin,
+        Evento: Evento,
+        DataEvento: DataEvento
+    }
+})

@@ -8,7 +8,7 @@ html, body {
     font-family: Arial, sans-serif;
 }
 
-#messageCads, #messageSolic, #messagePesq, #messageUser, #messageBtItens, #messageBtUser {
+#messageCads, #messageSolic, #messagePesq, #messageUser, #messageBtItens, #messageBtUser, #messageCarrinho{
     padding: 5px;
     border-radius: 5px;
     margin-bottom: 5px;
@@ -18,15 +18,15 @@ html, body {
     text-align: center;
 }
 
-#messageCads.success, #messageSolic.success, #messagePesq.success, #messageUser.success, #messageBtItens.success, #messageBtUser.success {
+#messageCads.success, #messageSolic.success, #messagePesq.success, #messageUser.success, #messageBtItens.success, #messageBtUser.success, #messageCarrinho.success {
     color: green;
 }
 
-#messageCads.error, #messageSolic.error, #messagePesq.error, #messageUser.error, #messageBtItens.error, #messageBtUser.error {
+#messageCads.error, #messageSolic.error, #messagePesq.error, #messageUser.error, #messageBtItens.error, #messageBtUser.error, #messageCarrinho.error {
     color: red;
 }
 
-#messageBtItens.alert, #messageBtUser.alert {
+#messageBtItens.alert, #messageBtUser.alert, #messageCarrinho.alert {
     color: red;
     font-weight: bold;
 }
@@ -368,4 +368,26 @@ footer {
     background-color: #ddd;
     text-align: center;
     height: 20px;
+}
+
+.btn-table-delete {
+    margin: 1px;
+    padding: 4px;
+    width: 50px;
+}
+
+.btn-table-alterar {
+    margin: 1px;
+    padding: 4px;
+    width: 40px;
+}
+
+#btnConcluirPedido {
+    margin-top: 20px; 
+    font-size: large; 
+    font-weight: bold;
+}
+
+#btnConcluirPedido:hover {
+    background-color: #cf3030;
 }
