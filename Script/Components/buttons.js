@@ -58,7 +58,7 @@ solicitarButton?.addEventListener('click', function () {
 
 finalizarPedidoButton.addEventListener('click', function () {
     if (listItensPedidos.length === 0) {
-        showMessageCarrinho('Seu carrinho está vazio', 'alert');
+        showMessageCarrinho('Adicione seus itens no carrinho', 'alert');
     } else {
         pedidoResume.style.display = 'flex';
         showMessageCarrinho('', 'none');

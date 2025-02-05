@@ -46,6 +46,12 @@ function showMessageCarrinho(message, className) {
     messageCarrinho.style.display = 'block';
 };
 
+function showMessageConcluirPedido(message, className) {
+    messageConcluirPedido.innerText = message;
+    messageConcluirPedido.className = className;
+    messageConcluirPedido.style.display = 'block';
+};
+
 function hideMessageAndButtons() {
     messageBtUser.style.display = 'none';
     buttonUserAgree.style.display = 'none';

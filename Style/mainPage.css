@@ -8,7 +8,7 @@ html, body {
     font-family: Arial, sans-serif;
 }
 
-#messageCads, #messageSolic, #messagePesq, #messageUser, #messageBtItens, #messageBtUser, #messageCarrinho{
+#messageCads, #messageSolic, #messagePesq, #messageUser, #messageBtItens, #messageBtUser, #messageCarrinho, #messageConcluirPedido {
     padding: 5px;
     border-radius: 5px;
     margin-bottom: 5px;
@@ -18,15 +18,15 @@ html, body {
     text-align: center;
 }
 
-#messageCads.success, #messageSolic.success, #messagePesq.success, #messageUser.success, #messageBtItens.success, #messageBtUser.success, #messageCarrinho.success {
+#messageCads.success, #messageSolic.success, #messagePesq.success, #messageUser.success, #messageBtItens.success, #messageBtUser.success, #messageCarrinho.success, #messageConcluirPedido.success {
     color: green;
 }
 
-#messageCads.error, #messageSolic.error, #messagePesq.error, #messageUser.error, #messageBtItens.error, #messageBtUser.error, #messageCarrinho.error {
+#messageCads.error, #messageSolic.error, #messagePesq.error, #messageUser.error, #messageBtItens.error, #messageBtUser.error, #messageCarrinho.error, #messageConcluirPedido.error {
     color: red;
 }
 
-#messageBtItens.alert, #messageBtUser.alert, #messageCarrinho.alert {
+#messageBtItens.alert, #messageBtUser.alert, #messageCarrinho.alert, #messageConcluirPedido.alert {
     color: red;
     font-weight: bold;
 }

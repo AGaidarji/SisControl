@@ -16,7 +16,8 @@ let responseGetItem;
 const userNamePedido = localStorage.getItem('userNameLogin');
 let Evento = JSON.parse(localStorage.getItem('pedidoEvento'));
 let DataEvento = JSON.parse(localStorage.getItem('pedidoData'));
-const listItensPedidos = JSON.parse(localStorage.getItem('carrinho')) || [];
+let DataFormatoISO = JSON.parse(localStorage.getItem('dataFormatoISO'));
+let listItensPedidos = JSON.parse(localStorage.getItem('carrinho')) || [];
 
 document.addEventListener('DOMContentLoaded', () => {
     verificarCarrinho();
@@ -186,17 +187,22 @@ document.getElementById('formSolicitar').addEventListener('submit', async functi
         const NomePedidoRequest = itensPedido.nomeItem
         const QuantPedidoRequest = itensPedido.quantidadePedida
         
+        // Monta a lista e salva os dados no LocalStorage
         listItensPedidos.push({ IdPedidoRequest, NomePedidoRequest, QuantPedidoRequest });
         localStorage.setItem('carrinho', JSON.stringify(listItensPedidos));
         localStorage.setItem('pedidoEvento', JSON.stringify(Evento));
+        
+        // Salva a data no formato ISO yyyy-MM-dd
+        DataFormatoISO = DataEvento;
+        localStorage.setItem('dataFormatoISO', JSON.stringify(DataFormatoISO));
+
+        // Transforma data para formato dd/MM/yyyy 
+        let DataFormatada = DataEvento.split('-');
+        DataEvento = `${DataFormatada[2]}/${DataFormatada[1]}/${DataFormatada[0]}`;
         localStorage.setItem('pedidoData', JSON.stringify(DataEvento));
 
         atualizarCarrinho();
         verificarCarrinho();
-        
-    
-        let DataFormatada = DataEvento.split('-');
-        DataEvento = `${DataFormatada[2]}/${DataFormatada[1]}/${DataFormatada[0]}`;
         montarResumoCarrinho();
 
         showMessageSolic('Item adicionado ao carrinho!', 'success');
@@ -206,12 +212,69 @@ document.getElementById('formSolicitar').addEventListener('submit', async functi
     }
 })
 
+document.getElementById('btnConcluirPedido').addEventListener('click', async function (event) {
+    event.preventDefault();
 
-const pedidoRequest = JSON.stringify({
-    Pedido: {
-        NomeUser: userNameLogin,
-        CpfUser: userCpfLogin,
-        Evento: Evento,
-        DataEvento: DataEvento
+    const listaItens = listItensPedidos.map(item => ({
+        IdItem: item.IdPedidoRequest,
+        NomeItem: item.NomePedidoRequest,
+        Quantidade: item.QuantPedidoRequest
+    }));
+
+    console.log(DataFormatoISO);
+
+    const pedidoRequest = JSON.stringify({ 
+        pedido: {
+            NomeUser: userNameLogin,
+            CpfUser: userCpfLogin,
+            Evento: Evento,
+            DataEvento: DataFormatoISO
+        },
+        itens: listaItens
+    });
+
+    if (inProducao === "S") {
+        responsePostPedido = await fetch(`https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/PedidosModels/CriarPedido`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: pedidoRequest
+        })
+    } else {
+        responsePostPedido = await fetch(`https://localhost:5201/api/PedidosModels/CriarPedido`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: pedidoRequest
+        })
     }
-})
+
+    try{
+        if (!responsePostPedido.ok) {
+            const errorText = await responsePostPedido.text();
+            console.error("Erro no pedido:", errorText);
+            showMessageConcluirPedido(errorText, 'error');
+            return;
+        } 
+
+        console.log("Resetando lista...");
+        listItensPedidos = [];
+        console.log("Evento:", Evento);
+        console.log("DataEvento:", DataEvento);
+
+        console.log("Salvando no localStorage...");
+        localStorage.setItem('carrinho', JSON.stringify(listItensPedidos));
+        if (Evento !== undefined) localStorage.setItem('pedidoEvento', JSON.stringify(Evento));
+        if (DataEvento !== undefined) localStorage.setItem('pedidoData', JSON.stringify(DataEvento));
+
+        console.log("Chamando mensagens...");
+        showMessageConcluirPedido('Pedido concluído com sucesso!', 'success');
+
+    } catch (error) {
+        console.error("Erro ao enviar o pedido:", error);
+        showMessageConcluirPedido('Erro inesperado ao concluir o pedido', 'error');
+    }
+});
+
