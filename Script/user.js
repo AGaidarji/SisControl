@@ -33,27 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 })
 
-// Função para exibir ou esconder mensagens
-function showMessageBtUser(message, className) {
-    messageBtUser.innerText = message;
-    messageBtUser.className = className;
-    messageBtUser.style.display = 'block';
-}
-
-function showMessageUser(message, className) {
-    messageUser.innerText = message;
-    messageUser.className = className;
-    messageUser.style.display = 'block';
-}
-
-function hideMessageAndButtons() {
-    messageBtUser.style.display = 'none';
-    buttonUserAgree.style.display = 'none';
-    buttonUserDegree.style.display = 'none';
-    alterarCongregacao.style.display = 'none';
-    alterarFuncao.style.display = 'none';
-}
-
 // Função para exibir botões
 function showCamposAlterarAndButtons (display) {
     alterarCongregacao.style.display = display;

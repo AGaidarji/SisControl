@@ -64,20 +64,3 @@ async function obterItens() {
         return null;
     }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    closeItensResume.addEventListener('click', function () {
-        document.getElementById('itemResumeContainer').style.display = 'none';
-    })
-})
-
-document.addEventListener('DOMContentLoaded', () => {
-    buttonListItens.addEventListener('click', function () {
-        const itemResumeContainer = document.getElementById('itemResumeContainer');
-        if (itemResumeContainer.style.display === 'flex') {
-            itemResumeContainer.style.display = 'none';
-        } else {
-            itemResumeContainer.style.display = 'flex';
-        }
-    })
-})

@@ -20,8 +20,6 @@ let dadosTodosItens;
 const formCadastro = document.getElementById('formCadastrar');
 const formPesquisar = document.getElementById('formPesquisar');
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
     closeContainerDireita.addEventListener('click', function () {
         document.getElementById('conteudoLateral').style.display = 'none';
@@ -37,12 +35,6 @@ if (userFunction === 'Admin') {
         if (formCadastro.style.display === 'none' || formCadastro.style.display === '') {
             styleForms('block', 'none', 'none', 'none');
             document.getElementById('userInfo').classList.add('hidden');
-
-            function showMessageCads(message, className) {
-                messageCads.innerText = message;
-                messageCads.className = className;
-                messageCads.style.display = 'block';
-            }
 
             document.getElementById('formCadastrar').addEventListener('submit', async function (event) {
                 event.preventDefault();
@@ -91,17 +83,6 @@ if (userFunction === 'Admin') {
 }
 
 // ================= Campo de Pesquisa de item =================
-pesquisarButton.addEventListener('click', function () {
-    if (formPesquisar.style.display === 'none' || formPesquisar.style.display === '') {
-        formPesquisar.style.display = 'block';
-        formCadastro.style.display = 'none';
-        formSolicitar.style.display = 'none';
-        formUsuarios.style.display = 'none';
-        document.getElementById('userInfo').classList.add('hidden');
-    } else {
-        formPesquisar.style.display = 'none';
-    }
-})
 
 document.getElementById('formPesquisar').addEventListener('submit', async function (event) {
     event.preventDefault();
@@ -110,19 +91,6 @@ document.getElementById('formPesquisar').addEventListener('submit', async functi
     const nomeItem = document.getElementById('NomeItemP').value;
     idItem = document.getElementById('Codigo').value;
     let responseGetItem;
-
-    // Funções para mostrar mensagens
-    function showMessagePesq(message, className) {
-        messagePesq.innerText = message;
-        messagePesq.className = className;
-        messagePesq.style.display = 'block';
-    }
-
-    function showMessageBtItens(message, className) {
-        messageBtItens.innerText = message;
-        messageBtItens.className = className;
-        messageBtItens.style.display = 'block';
-    };
 
     try {
         if (nomeItem != null && nomeItem != '') {
@@ -249,7 +217,7 @@ document.getElementById('formPesquisar').addEventListener('submit', async functi
                     buttonItemDegree.addEventListener('click', hideMessageAndButtons);
                 });
 
-                // ====================== Evento para Alterar dados de um item ======================
+                // ================== Evento para Alterar dados de um item ===================
                 buttonAlterItem.addEventListener('click', () => {
                     showMessageBtItens("Informe o que deseja alterar e depois confirme a alteração", 'default');
                     buttonItemAgree.style.display = 'inline';
