@@ -1,0 +1,38 @@
+#meusPedidosContainer {
+    display: none;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 2px solid #264257;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    color: #091235;
+}
+
+.meus-pedidos-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.button-close-meus-pedidos {
+    padding: 7px;
+    background-color: #acb1c5;
+
+    & img {
+        width: 20px;
+    }
+}
+
+.button-close-meus-pedidos:hover {
+    background-color: red;
+}
+
+.btn-table-detalhes {
+    margin: 1px;
+    padding: 4px;
+    width: 60px;
+}

@@ -241,17 +241,17 @@ background-color: #dddddd;
     display: inline;
 }
 
-.p1, .p3{
+.p1 {
     font-size: 1em;
-    margin: 5px 0;
+    margin: 1px 0 0 0;
     padding: 5px;
     margin-bottom: 10px;
     background-color: #88A9C3;
 }
 
-.p2, .p4{
+.p2 {
     font-size: 1em;
-    margin: 0;
+    margin: 1px 0 0 0;
     padding: 5px;
     margin-bottom: 10px;
     background-color: #b1b1b1;

@@ -73,3 +73,34 @@ finalizarPedidoButton.addEventListener('click', function () {
 pedidoResumeClose?.addEventListener('click', function () {
     pedidoResume.style.display = 'none';
 });
+
+// ------------- Botões - Users ------------
+usuariosButton.addEventListener('click', function () {
+    if (formUsuarios.style.display === 'none' || formUsuarios.style.display === '') {
+        styleForms('none', 'none', 'none', 'block');
+    } else {
+        formUsuarios.style.display = 'none';
+        document.getElementById('userInfo').classList.add('hidden');
+    }
+})
+
+buttonEditUserInfo.addEventListener('click', async function() {
+    showMessageBtUser("Confirma a alteração?", 'alert')
+    showCamposAlterarAndButtons('inline');
+})
+
+buttonUserDegree.addEventListener('click', async function() {
+    hideMessageAndButtons();
+})
+
+closeUserInfoBt.addEventListener('click', function () {
+    document.getElementById('userInfo').classList.add('hidden');
+    messageBtUser.style.display = 'none';
+    showCamposAlterarAndButtons('none');
+})
+
+
+// ------------- Botões - meusPedidos ------------
+meusPedidosBtnClose.addEventListener('click', function () {
+    meusPedidosContainer.style.display = 'none';
+})
