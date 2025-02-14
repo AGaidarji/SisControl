@@ -2,15 +2,15 @@
 const formUsuarios = document.getElementById('formUsuarios');
 
 // Campos de alteração
-const alterarCongregacao = document.getElementById('alterarCongregacao');
-const alterarFuncao = document.getElementById('Functions');
+const userInfoNewCongregacao = document.getElementById('userInfoNewCongregacao');
+const userInfoNewFunction = document.getElementById('userInfoNewFunction');
 
 // Botões
-const buttonUserAgree = document.getElementById('buttonUserAgree');
-const buttonUserDegree = document.getElementById('buttonUserDegree');
+const userInfoBtnAgree = document.getElementById('userInfoBtnAgree');
+const userInfoBtnDegree = document.getElementById('userInfoBtnDegree');
 const usuariosButton = document.getElementById('usuarios');
-const closeUserInfoBt = document.getElementById('closeUserInfo');
-const buttonEditUserInfo = document.getElementById('buttonEditUserInfo');
+const userInfoBtnClose = document.getElementById('userInfoBtnClose');
+const userInfoBtnEdit = document.getElementById('userInfoBtnEdit');
 
 // Variáveis iniciadas
 let userCongregacao;
@@ -26,15 +26,15 @@ function styleForms(styleFormCads, styleFormSolic, styleFormPesq, styleFormUser)
 
 // Função para exibir botões
 function showCamposAlterarAndButtons (display) {
-    alterarCongregacao.style.display = display;
-    alterarFuncao.style.display = display;
-    buttonUserAgree.style.display = display;
-    buttonUserDegree.style.display = display;
+    userInfoNewCongregacao.style.display = display;
+    userInfoNewFunction.style.display = display;
+    userInfoBtnAgree.style.display = display;
+    userInfoBtnDegree.style.display = display;
 }
 
 if (userFunction === 'Admin') {
     usuariosButton.style.display = 'inline';
-    buttonEditUserInfo.style.display = 'inline';
+    userInfoBtnEdit.style.display = 'inline';
 
     document.getElementById('formUsuarios').addEventListener('submit', async function (event) {
         event.preventDefault();
@@ -79,13 +79,13 @@ if (userFunction === 'Admin') {
         }
     })
     
-    buttonUserAgree.addEventListener('click', async function(){
-        let novaCongregacao = document.getElementById('alterarCongregacao').value;
-        let novaFuncao = document.getElementById('Functions').value;
+    userInfoBtnAgree.addEventListener('click', async function(){
+        let novaCongregacao = document.getElementById('userInfoNewCongregacao').value;
+        let novaFuncao = document.getElementById('userInfoNewFunction').value;
         let responsePutUser;
 
         if(novaCongregacao === "" && novaFuncao === "") {
-            showMessageBtUser("Preencha pelo menos um dos campos", 'alert')
+            showUserInfoMsg("Preencha pelo menos um dos campos", 'alert')
             return;
         } else if (novaCongregacao === "") {
             novaCongregacao = userCongregacao
@@ -124,15 +124,15 @@ if (userFunction === 'Admin') {
 
             
             if (responsePutUser.status == 204) {
-                showMessageBtUser('Dados do usuário alterado com sucesso!', 'success');
+                showUserInfoMsg('Dados do usuário alterado com sucesso!', 'success');
             } else {
-                showMessageBtUser('Erro ao alterar dados do usuário.', 'error');
+                showUserInfoMsg('Erro ao alterar dados do usuário.', 'error');
             }
         } catch (error) {
-            showMessageBtUser('Erro ao alterar dados do usuário.', 'error');
+            showUserInfoMsg('Erro ao alterar dados do usuário.', 'error');
             console.error('Erro ao alterar item:', error);
         } finally {
-            buttonUserAgree.disabled = false;
+            userInfoBtnAgree.disabled = false;
             setTimeout(hideMessageAndButtons, 2000);
         }
     })

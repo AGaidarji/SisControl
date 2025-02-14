@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="Style/mainPage.css">
     <link rel="stylesheet" href="Style/carrinho.css">
     <link rel="stylesheet" href="Style/meusPedidos.css">
+    <link rel="stylesheet" href="Style/concluirPedido.css">
+    <link rel="stylesheet" href="Style/messages.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <title>SisControl - Main Page</title>
 </head>
@@ -41,6 +44,29 @@
         </div>
 
         <div class="conteudo-main">
+            <div id="resumeEstoque" class="resumeEstoque">
+                <header class="resumeEstoque-header">
+                    <p> </p>
+                    <h3>Itens no estoque</h3>
+                    <div>
+                        <button id="resumeEstoqueBtnClose" class="resumeEstoque-btnClose"><img src="https://img.icons8.com/?size=100&id=95771&format=png&color=000000" alt="Icone para fechar container com informações dos itens"></button>    
+                    </div>
+                </header>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Item</th>
+                            <th>Quantidade</th>
+                            <th>Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resumeEstoqueTableBody">
+                        
+                    </tbody>
+                </table>
+            </div>
+
             <form id="formCadastrar" class="form">
                 <input type="text" id="NomeItemC" placeholder="Nome Item" class="campo_form" required>
                 <input type="number" id="Quantidade" placeholder="Quantidade" class="campo_form" required>
@@ -78,12 +104,12 @@
                 <button id="submit" class="campo_form">Pesquisar</button>
             </form>
 
-            <div id="userInfo" class="user-info hidden">
-                <header class="user-info-header">
+            <div id="userInfo" class="userInfo hidden">
+                <header class="userInfo-header">
                     <h3>Dados do usuário</h3>
                     <div>
-                        <button id="buttonEditUserInfo" class="button-edit"><img src="https://img.icons8.com/?size=100&id=6697&format=png&color=000000" alt="Icone para alterar informações do usuario"></button>
-                        <button id="closeUserInfo" class="button-close-user-info"><img src="https://img.icons8.com/?size=100&id=95771&format=png&color=000000" alt="Icone para fechar container com informações do usuario"></button>    
+                        <button id="userInfoBtnEdit" class="userInfo-btnEdit"><img src="https://img.icons8.com/?size=100&id=6697&format=png&color=000000" alt="Icone para alterar informações do usuario"></button>
+                        <button id="userInfoBtnClose" class="userInfo-btnClose"><img src="https://img.icons8.com/?size=100&id=95771&format=png&color=000000" alt="Icone para fechar container com informações do usuario"></button>    
                     </div>
                 </header>
 
@@ -91,33 +117,33 @@
                 <p class="p2"><strong>Email: </strong> <span id="userEmail"> </span></p>
                 <p class="p1"><strong>Telefone: </strong> <span id="userTel"> </span></p>
                 <p class="p2"><strong>Último Login: </strong> <span id="userLastLogin"> </span></p>
-                <p class="p1"><strong>Congregação: </strong> <span id="userCongregacao"> </span> <input type="text" name="Alterar Congregação" id="alterarCongregacao" class="input-alterar-cong"> </p>
+                <p class="p1"><strong>Congregação: </strong> <span id="userCongregacao"> </span> <input type="text" name="Alterar Congregação" id="userInfoNewCongregacao" class="userInfoNewCongregacao"> </p>
                 <p class="p2">
                     <strong>Função: </strong> 
                     <span id="userFuncao"></span> 
-                    <select id="Functions" class="select-edit-functions">
+                    <select id="userInfoNewFunction" class="userInfoNewFunction">
                         <option value="" disabled selected>Selecione uma função</option>
                         <option value="Admin">Admin</option>
                         <option value="Editor">Editor</option>
                         <option value="Leitor">Leitor</option>
                     </select> 
                 </p>
-                <div id="messageBtUser"></div>
-                <div id="buttonConfirm" class="button-confirm">
-                    <button id="buttonUserAgree" style="display: none; color: #ffffff; background-color: green;">Confirmar</button>
-                    <button id="buttonUserDegree" style="display: none; color: #ffffff; background-color: red;">Cancelar</button>
+                <div id="userInfoMsg"></div>
+                <div class="button-confirm">
+                    <button id="userInfoBtnAgree" style="display: none; color: #ffffff; background-color: green;">Confirmar</button>
+                    <button id="userInfoBtnDegree" style="display: none; color: #ffffff; background-color: red;">Cancelar</button>
                 </div>
             </div>
 
-            <div id="pedidoResume" class="pedido-resume">
-                <header class="pedido-resume-header">
+            <div id="finalizarPedido" class="finalizarPedido">
+                <header class="finalizarPedido-header">
                     <p> </p>
                     <h3>Carrinho</h3>
                     <div>
-                        <button id="pedidoResumeClose" class="pedido-resume-close"><img src="https://img.icons8.com/?size=100&id=95771&format=png&color=000000" alt="Icone para fechar container com informações dos itens"></button>    
+                        <button id="finalizarPedidoBtnClose" class="finalizarPedido-btnClose"><img src="https://img.icons8.com/?size=100&id=95771&format=png&color=000000" alt="Icone para fechar container com informações dos itens"></button>    
                     </div>
                 </header>
-                <div id="ItensCarrinho" class="container-itens-carrinho">
+                <div id="finalizarPedidoTable">
                     <p><strong>Solicitante: </strong> <span id="userNamePedido"></span</p>
                     <p><strong>Evento: </strong> <span id="nomeEvento"></p>
                     <p><strong>Data: </strong> <span id="dataEvento">
@@ -129,38 +155,13 @@
                                 <th style="text-align: center;">Quantidade solicitada</th>
                             </tr>
                         </thead>
-                        <tbody id="itensCarrinhoBody">
-        
-                        </tbody>
-                    </table>
-                </div>
-                <div id="messageConcluirPedido"></div>
-                <button id="btnConcluirPedido">Concluir Pedido</button>
-            </div>
+                        <tbody id="finalizarPedidoTableBody">
 
-            <div id="itemResumeContainer" class="item-resume">
-                <header class="itens-resume-header">
-                    <p> </p>
-                    <h3>Itens no estoque</h3>
-                    <div>
-                        <button id="closeItensResume" class="button-close-itens-resume"><img src="https://img.icons8.com/?size=100&id=95771&format=png&color=000000" alt="Icone para fechar container com informações dos itens"></button>    
-                    </div>
-                </header>
-                <div id="ItensResume" class="container-itens-resume">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Código</th>
-                                <th>Item</th>
-                                <th>Quantidade</th>
-                                <th>Descrição</th>
-                            </tr>
-                        </thead>
-                        <tbody id="itensTableBody">
-                            
                         </tbody>
                     </table>
                 </div>
+                <div id="finalizarPedidoMsg"></div>
+                <button id="finalizarPedidoSubmitBtn">Concluir Pedido</button>
             </div>
 
             <div id="meusPedidosContainer">
@@ -175,8 +176,9 @@
                         <thead>
                             <tr>
                                 <th style="text-align: center;">IdPedido</th>
+                                <th style="text-align: center;">Data do Pedido</th>
                                 <th style="text-align: center;">Evento</th>
-                                <th style="text-align: center;">Data</th>
+                                <th style="text-align: center;">Data Evento</th>
                                 <th style="text-align: center;">Status</th>
                             </tr>
                         </thead>
@@ -189,45 +191,42 @@
         </div>
 
         <!-- -->
-        <div id="conteudoLateral" class="conteudo-lateral">
-            <div id="itemInfo" class="item-info hidden"> 
-                <button id="closeContainerDireita" class="button-close"><img src="https://img.icons8.com/?size=100&id=95771&format=png&color=000000" alt="Item para fechar conteudo lateral direita"></button>
-                <div class="header-section">
+        <div id="itemPesquisado" class="itemPesquisado">
+            <div id="itemPesquisadoInfo" class="hidden"> 
+                <button id="itemPesquisadoBtnClose" class="button-close"><img src="https://img.icons8.com/?size=100&id=95771&format=png&color=000000" alt="Item para fechar conteudo lateral direita"></button>
+                <div class="itemPesquisado-header">
                     <h3>Dados do Item</h3>
                     <div>
-                        <img id="itemFoto" class="imgItem" alt="Foto do produto">
+                        <img id="itemPesquisadoFoto" class="itemPesquisadoFoto" alt="Foto do produto">
                     </div>
                 </div>
-                <div class="item-info-inside">
-                    <div>
-                        <p class="p1"><strong>Código: </strong> <span id="itemId"></p>
-                        <p class="p2"><strong>Item: </strong> <span id="itemNome"></p>
-                        <p class="p1"><strong>Quantidade: </strong> <span id="itemQuantidade"> </span> <input type="number" name="Alterar Quantidade" id="alterarQuantidade" class="campo-alterarQt"></p>
-                        <p class="p2"><strong>Descrição: </strong> <span id="itemDescricao"> </span> <input type="text" name="Alterar Descrição" id="alterarDescricao" class="campo-alterarDesc"></p>
-                        
-                    </div>
+                <div>
+                    <p class="p1"><strong>Código: </strong> <span id="itemId"></p>
+                    <p class="p2"><strong>Item: </strong> <span id="itemNome"></p>
+                    <p class="p1"><strong>Quantidade: </strong> <span id="itemQuantidade"> </span> <input type="number" name="Alterar Quantidade" id="alterarQuantidade" class="campo-alterarQt"></p>
+                    <p class="p2"><strong>Descrição: </strong> <span id="itemDescricao"> </span> <input type="text" name="Alterar Descrição" id="alterarDescricao" class="campo-alterarDesc"></p>
                 </div>
-                <div class="buttons-item">
-                    <button id="buttonAddItem" class="button-exclusive">Adicionar Carrinho</button>
-                    <button id="buttonAlterItem" class="button-exclusive">Alterar</button>
-                    <button id="buttonDelItem" class="button-exclusive">Excluir</button>
+                <div class="itemPesquisadoButtons">
+                    <button id="itemPesquisadoBtnAdd" class="button-exclusive">Adicionar Carrinho</button>
+                    <button id="itemPesquisadoBtnAlter" class="button-exclusive">Alterar</button>
+                    <button id="itemPesquisadoBtnExcluir" class="button-exclusive">Excluir</button>
                 </div>
-                <div id="messageBtItens"></div>
-                <div id="buttonConfirm" class="button-confirm">
-                    <button id="buttonItemAgree" style="display: none; color: #ffffff; background-color: green;">Confirmar</button>
-                    <button id="buttonItemDegree" style="display: none; color: #ffffff; background-color: red;">Cancelar</button>
+                <div id="itemPesquisadoMsg"></div>
+                <div class="button-confirm">
+                    <button id="itemPesquisadoBtnAgree" style="display: none; color: #ffffff; background-color: green;">Confirmar</button>
+                    <button id="itemPesquisadoBtnDegree" style="display: none; color: #ffffff; background-color: red;">Cancelar</button>
                 </div>
             </div>
         </div>
         
         <!-- Menu do Carrinho -->
-        <div id="contentCarrinho" class="content-carrinho hidden">
-            <div class="resume-content">
+        <div id="carrinho" class="hidden">
+            <div class="carrinhoConteudo">
                 <h4>Total</h4>
-                <p id="carrinhoEmpty" class="itensCarrinhoResume hidden">
+                <p id="carrinhoEmpty" class="hidden">
                     <strong>Seu carrinho está vazio</strong>
                 </p>
-                <div id="carrinhoFull" class="tableCarrinho hidden">
+                <div id="carrinhoFull" class="carrinhoTable hidden">
                     <table>
                         <thead>
                             <tr>
@@ -235,14 +234,14 @@
                                 <th style="text-align: center;">Quantidade</th>
                             </tr>
                         </thead>
-                        <tbody id="itensTableCarrinho">
+                        <tbody id="carrinhoTableBody">
 
                         </tbody>
                     </table>
                 </div>
-                <div id="messageCarrinho"></div>
-                <button id="fecharCarrinho">Fechar</button>
-                <button id="finalizarPedido">Finalizar Pedido</button>
+                <div id="carrinhoMsg"></div>
+                <button id="carrinhoBtnClose">Fechar</button>
+                <button id="carrinhoBtnFinalizar">Finalizar Pedido</button>
             </div>
         </div>
     </div>

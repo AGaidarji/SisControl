@@ -2,14 +2,14 @@
 const solicitarButton = document.getElementById('solicitarItem');
 const pedidosButton = document.getElementById('pedidosRecentes');
 const buttonCarrinho = document.getElementById('buttonCarrinho');
-const fecharCarrinho = document.getElementById('fecharCarrinho');
-const finalizarPedidoButton = document.getElementById('finalizarPedido');
-const pedidoResume = document.getElementById('pedidoResume');
-const pedidoResumeClose = document.getElementById('pedidoResumeClose');
+const carrinhoBtnClose = document.getElementById('carrinhoBtnClose');
+const carrinhoBtnFinalizar = document.getElementById('carrinhoBtnFinalizar');
+const finalizarPedido = document.getElementById('finalizarPedido');
+const finalizarPedidoBtnClose = document.getElementById('finalizarPedidoBtnClose');
 
 // Formulários
 const formSolicitar = document.getElementById('formSolicitar');
-const contentCarrinho = document.getElementById('contentCarrinho');
+const carrinho = document.getElementById('carrinho');
 
 // Variáveis para inicializar
 let responseGetItem;
@@ -41,14 +41,14 @@ function verificarCarrinho() {
     } else {
         carrinhoFull.style.display = 'block';
         carrinhoEmpty.style.display = 'none';
-        showMessageCarrinho('', 'none');
+        showCarrinhoMsg('', 'none');
     }
 
     atualizarCarrinho();
 }
 
 function atualizarCarrinho() {
-    const tableBody = document.getElementById('itensTableCarrinho');
+    const tableBody = document.getElementById('carrinhoTableBody');
     tableBody.innerHTML = '';
 
     listItensPedidos.forEach(item => {
@@ -66,7 +66,7 @@ function montarResumoCarrinho() {
     document.getElementById('nomeEvento').textContent = Evento;
     document.getElementById('dataEvento').textContent = DataEvento;
 
-    const tableBody = document.getElementById('itensCarrinhoBody');
+    const tableBody = document.getElementById('finalizarPedidoTableBody');
     tableBody.innerHTML = '';
 
     listItensPedidos.forEach(item => {
@@ -212,7 +212,7 @@ document.getElementById('formSolicitar').addEventListener('submit', async functi
     }
 })
 
-document.getElementById('btnConcluirPedido').addEventListener('click', async function (event) {
+document.getElementById('finalizarPedidoSubmitBtn').addEventListener('click', async function (event) {
     event.preventDefault();
 
     const listaItens = listItensPedidos.map(item => ({
@@ -255,26 +255,20 @@ document.getElementById('btnConcluirPedido').addEventListener('click', async fun
         if (!responsePostPedido.ok) {
             const errorText = await responsePostPedido.text();
             console.error("Erro no pedido:", errorText);
-            showMessageConcluirPedido(errorText, 'error');
+            showFinalizarPedidoMsg(errorText, 'error');
             return;
         } 
 
-        console.log("Resetando lista...");
         listItensPedidos = [];
-        console.log("Evento:", Evento);
-        console.log("DataEvento:", DataEvento);
-
-        console.log("Salvando no localStorage...");
         localStorage.setItem('carrinho', JSON.stringify(listItensPedidos));
         if (Evento !== undefined) localStorage.setItem('pedidoEvento', JSON.stringify(Evento));
         if (DataEvento !== undefined) localStorage.setItem('pedidoData', JSON.stringify(DataEvento));
 
-        console.log("Chamando mensagens...");
-        showMessageConcluirPedido('Pedido concluído com sucesso!', 'success');
+        showFinalizarPedidoMsg('Pedido concluído com sucesso!', 'success');
 
     } catch (error) {
         console.error("Erro ao enviar o pedido:", error);
-        showMessageConcluirPedido('Erro inesperado ao concluir o pedido', 'error');
+        shoFinalizarPedidoMsg('Erro inesperado ao concluir o pedido', 'error');
     }
 });
 

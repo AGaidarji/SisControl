@@ -1,7 +1,7 @@
-function showMessageBtUser(message, className) {
-    messageBtUser.innerText = message;
-    messageBtUser.className = className;
-    messageBtUser.style.display = 'block';
+function showUserInfoMsg(message, className) {
+    userInfoMsg.innerText = message;
+    userInfoMsg.className = className;
+    userInfoMsg.style.display = 'block';
 }
 
 function showMessageUser(message, className) {
@@ -34,28 +34,28 @@ function showMessagePesq(message, className) {
     messagePesq.style.display = 'block';
 }
 
-function showMessageBtItens(message, className) {
-    messageBtItens.innerText = message;
-    messageBtItens.className = className;
-    messageBtItens.style.display = 'block';
+function showItemPesquisadoMsg(message, className) {
+    itemPesquisadoMsg.innerText = message;
+    itemPesquisadoMsg.className = className;
+    itemPesquisadoMsg.style.display = 'block';
 };
 
-function showMessageCarrinho(message, className) {
-    messageCarrinho.innerText = message;
-    messageCarrinho.className = className;
-    messageCarrinho.style.display = 'block';
+function showCarrinhoMsg(message, className) {
+    carrinhoMsg.innerText = message;
+    carrinhoMsg.className = className;
+    carrinhoMsg.style.display = 'block';
 };
 
-function showMessageConcluirPedido(message, className) {
-    messageConcluirPedido.innerText = message;
-    messageConcluirPedido.className = className;
-    messageConcluirPedido.style.display = 'block';
+function showFinalizarPedidoMsg(message, className) {
+    finalizarPedidoMsg.innerText = message;
+    finalizarPedidoMsg.className = className;
+    finalizarPedidoMsg.style.display = 'block';
 };
 
 function hideMessageAndButtons() {
-    messageBtUser.style.display = 'none';
-    buttonUserAgree.style.display = 'none';
-    buttonUserDegree.style.display = 'none';
-    alterarCongregacao.style.display = 'none';
-    alterarFuncao.style.display = 'none';
+    userInfoMsg.style.display = 'none';
+    userInfoBtnAgree.style.display = 'none';
+    userInfoBtnDegree.style.display = 'none';
+    userInfoNewCongregacao.style.display = 'none';
+    userInfoNewFunction.style.display = 'none';
 }

@@ -3,7 +3,7 @@ const userFunctionLogin = localStorage.getItem('userFunctionLogin');
 const userNameLogin = localStorage.getItem('userNameLogin');
 const userCpfLogin = localStorage.getItem('userCpfLogin');
 const inProducao = localStorage.getItem('inProducao');
-const closeItensResume = document.getElementById('closeItensResume'); 
+const resumeEstoqueBtnClose = document.getElementById('resumeEstoqueBtnClose'); 
 const buttonListItens = document.getElementById('buttonListItens'); 
 
 const firstName = userNameLogin.split(' ');
@@ -39,7 +39,7 @@ async function obterItens() {
 
         if (responseGetTodosItens.ok) {
             const dadosTodosItens = await responseGetTodosItens.json();
-            const tableBody = document.getElementById('itensTableBody');
+            const tableBody = document.getElementById('resumeEstoqueTableBody');
 
             tableBody.innerHTML = '';
 

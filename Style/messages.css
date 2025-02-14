@@ -1,0 +1,22 @@
+#messageCads, #messageSolic, #messagePesq, #messageUser, #itemPesquisadoMsg, #userInfoMsg, #carrinhoMsg, #finalizarPedidoMsg {
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: black;
+    display: none;
+    text-align: center;
+}
+
+#messageCads.success, #messageSolic.success, #messagePesq.success, #messageUser.success, #itemPesquisadoMsg.success, #userInfoMsg.success, #carrinhoMsg.success, #finalizarPedidoMsg.success {
+    color: green;
+}
+
+#messageCads.error, #messageSolic.error, #messagePesq.error, #messageUser.error, #itemPesquisadoMsg.error, #userInfoMsg.error, #carrinhoMsg.error, #finalizarPedidoMsg.error {
+    color: red;
+}
+
+#itemPesquisadoMsg.alert, #userInfoMsg.alert, #carrinhoMsg.alert, #finalizarPedidoMsg.alert {
+    color: red;
+    font-weight: bold;
+}

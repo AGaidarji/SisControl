@@ -1,34 +1,12 @@
 /*---------------- Variaveis gerais --------------*/
 
+
 html, body {
     height: 100%;
     margin: 0;
     display: flex;
     flex-direction: column;
     font-family: Arial, sans-serif;
-}
-
-#messageCads, #messageSolic, #messagePesq, #messageUser, #messageBtItens, #messageBtUser, #messageCarrinho, #messageConcluirPedido {
-    padding: 5px;
-    border-radius: 5px;
-    margin-bottom: 5px;
-    font-size: 16px;
-    color: black;
-    display: none;
-    text-align: center;
-}
-
-#messageCads.success, #messageSolic.success, #messagePesq.success, #messageUser.success, #messageBtItens.success, #messageBtUser.success, #messageCarrinho.success, #messageConcluirPedido.success {
-    color: green;
-}
-
-#messageCads.error, #messageSolic.error, #messagePesq.error, #messageUser.error, #messageBtItens.error, #messageBtUser.error, #messageCarrinho.error, #messageConcluirPedido.error {
-    color: red;
-}
-
-#messageBtItens.alert, #messageBtUser.alert, #messageCarrinho.alert, #messageConcluirPedido.alert {
-    color: red;
-    font-weight: bold;
 }
 
 /*---------------- Barra do topo --------------*/
@@ -162,7 +140,7 @@ select.campo_form {
 }
 
 /*---------------- Código referente ao resumo dos itens --------------*/
-.item-resume {
+.resumeEstoque {
     display: flex;
     flex-direction: column;
     max-width: 800px;
@@ -189,19 +167,19 @@ tr:nth-child(even) {
 background-color: #dddddd;
 }
 
-.item-resume span {
+.resumeEstoque span {
     padding: 4px 8px;
     align-items: center;
     display: inline;
 }
 
-.itens-resume-header {
+.resumeEstoque-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.button-close-itens-resume {
+.resumeEstoque-btnClose {
     padding: 7px;
     background-color: #acb1c5;
 
@@ -210,13 +188,13 @@ background-color: #dddddd;
     }
 }
 
-.button-close-itens-resume:hover {
+.resumeEstoque-btnClose:hover {
     background-color: red;
 }
 /*---------------- Fim do código referente ao dados do usuario --------------*/
 
 /*---------------- Código referente ao dados do usuario --------------*/
-.user-info {
+.userInfo {
     display: flex;
     flex-direction: column;
     max-width: 400px;
@@ -229,13 +207,13 @@ background-color: #dddddd;
     color: #091235;
 }
 
-.user-info p{
+.userInfo p{
     display: flex;
     align-items: center;
     padding: 4px 2px;
 }
 
-.user-info span {
+.userInfo span {
     padding: 4px 8px;
     align-items: center;
     display: inline;
@@ -257,17 +235,17 @@ background-color: #dddddd;
     background-color: #b1b1b1;
 }
 
-.user-info-header {
+.userInfo-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.button-edit {
+.userInfo-btnEdit {
     display: none;
 }
 
-.button-close-user-info, .button-edit {
+.userInfo-btnClose, .userInfo-btnEdit {
     padding: 7px;
     background-color: #acb1c5;
 
@@ -276,15 +254,15 @@ background-color: #dddddd;
     }
 }
 
-.button-close-user-info:hover {
+.userInfo-btnClose:hover {
     background-color: red;
 }
 
-.button-edit:hover {
+.userInfo-btnEdit:hover {
     background-color: #465280;
 }
 
-.input-alterar-cong, .select-edit-functions {
+.userInfoNewCongregacao, .userInfoNewFunction {
     display: none;
     border-radius: 10px;
     padding: 5px;
@@ -295,7 +273,7 @@ background-color: #dddddd;
 
 /*---------------- Parte do conteudo lateral direito --------------*/
 
-.conteudo-lateral {
+.itemPesquisado {
     display: none;
     width: 500px;
     height: 100%;
@@ -304,7 +282,7 @@ background-color: #dddddd;
     background-color: #ffffff;
 }
 
-.header-section {
+.itemPesquisado-header {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -329,13 +307,13 @@ background-color: #dddddd;
     color: #091235;
 }
 
-.imgItem {
+.itemPesquisadoFoto {
     max-width: 100%; /* Ajusta a largura máxima para evitar overflow */
     max-height: 200px; /* Define uma altura máxima para a imagem */
     object-fit: contain; /* Garante que a imagem mantenha a proporção */
 }
 
-.buttons-item {
+.itemPesquisadoButtons {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -382,12 +360,3 @@ footer {
     width: 40px;
 }
 
-#btnConcluirPedido {
-    margin-top: 20px; 
-    font-size: large; 
-    font-weight: bold;
-}
-
-#btnConcluirPedido:hover {
-    background-color: #cf3030;
-}

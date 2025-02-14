@@ -1,33 +1,38 @@
 // ------------- Botões - MainPage ------------
 buttonListItens.addEventListener('click', function () {
-    const itemResumeContainer = document.getElementById('itemResumeContainer');
-    if (itemResumeContainer.style.display === 'flex') {
-        itemResumeContainer.style.display = 'none';
+    const resumeEstoque = document.getElementById('resumeEstoque');
+    if (resumeEstoque.style.display === 'flex') {
+        resumeEstoque.style.display = 'none';
     } else {
-        itemResumeContainer.style.display = 'flex';
+        resumeEstoque.style.display = 'flex';
     }
 })
 
-closeItensResume.addEventListener('click', function () {
-        document.getElementById('itemResumeContainer').style.display = 'none';
+resumeEstoqueBtnClose.addEventListener('click', function () {
+        document.getElementById('resumeEstoque').style.display = 'none';
     })
+
+itemPesquisadoBtnClose.addEventListener('click', function () {
+    document.getElementById('itemPesquisado').style.display = 'none';
+    document.getElementById('itemPesquisadoInfo').classList.add('hidden');
+})
 
 // ------------- Botões - Carrinho ------------
 buttonCarrinho?.addEventListener('click', function () {
-    if (contentCarrinho.classList.contains('show')) {
-        contentCarrinho.classList.remove('show');
-        contentCarrinho.classList.add('hidden');
+    if (carrinho.classList.contains('show')) {
+        carrinho.classList.remove('show');
+        carrinho.classList.add('hidden');
         document.body.classList.remove('open-carrinho');
     } else {
-        contentCarrinho.classList.remove('hidden');
-        contentCarrinho.classList.add('show');
+        carrinho.classList.remove('hidden');
+        carrinho.classList.add('show');
         document.body.classList.add('open-carrinho');
     }
 });
 
-fecharCarrinho?.addEventListener('click', function () {
-    contentCarrinho.classList.add('hidden'); // Adiciona 'hidden' novamente
-    contentCarrinho.classList.remove('show');
+carrinhoBtnClose?.addEventListener('click', function () {
+    carrinho.classList.add('hidden'); // Adiciona 'hidden' novamente
+    carrinho.classList.remove('show');
     document.body.classList.remove('open-carrinho');
 });
 
@@ -56,22 +61,25 @@ solicitarButton?.addEventListener('click', function () {
     }
 });
 
-finalizarPedidoButton.addEventListener('click', function () {
+carrinhoBtnFinalizar.addEventListener('click', function () {
     if (listItensPedidos.length === 0) {
-        showMessageCarrinho('Adicione seus itens no carrinho', 'alert');
+        showCarrinhoMsg('Adicione seus itens no carrinho', 'alert');
     } else {
-        pedidoResume.style.display = 'flex';
-        showMessageCarrinho('', 'none');
+        finalizarPedido.style.display = 'flex';
+        showCarrinhoMsg('', 'none');
         montarResumoCarrinho();
 
-        contentCarrinho.classList.add('hidden'); // Adiciona 'hidden' novamente
-        contentCarrinho.classList.remove('show');
-        document.body.classList.remove('open-carrinho');
+        formPesquisar.style.display = 'none';
+        formCadastro.style.display = 'none';
+        formSolicitar.style.display = 'none';
+        formUsuarios.style.display = 'none';
+        document.getElementById('userInfo').classList.add('hidden');
+        document.getElementById('resumeEstoque').style.display = 'none';
     }
 });
 
-pedidoResumeClose?.addEventListener('click', function () {
-    pedidoResume.style.display = 'none';
+finalizarPedidoBtnClose?.addEventListener('click', function () {
+    finalizarPedido.style.display = 'none';
 });
 
 // ------------- Botões - Users ------------
@@ -84,18 +92,18 @@ usuariosButton.addEventListener('click', function () {
     }
 })
 
-buttonEditUserInfo.addEventListener('click', async function() {
-    showMessageBtUser("Confirma a alteração?", 'alert')
+userInfoBtnEdit.addEventListener('click', async function() {
+    showUserInfoMsg("Confirma a alteração?", 'alert')
     showCamposAlterarAndButtons('inline');
 })
 
-buttonUserDegree.addEventListener('click', async function() {
+userInfoBtnDegree.addEventListener('click', async function() {
     hideMessageAndButtons();
 })
 
-closeUserInfoBt.addEventListener('click', function () {
+userInfoBtnClose.addEventListener('click', function () {
     document.getElementById('userInfo').classList.add('hidden');
-    messageBtUser.style.display = 'none';
+    userInfoMsg.style.display = 'none';
     showCamposAlterarAndButtons('none');
 })
 

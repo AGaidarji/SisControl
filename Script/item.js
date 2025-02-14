@@ -1,11 +1,11 @@
 // Botões
 const cadastrarButton = document.getElementById('cadastrarItem');
 const pesquisarButton = document.getElementById('pesquisarItem');
-const closeContainerDireita = document.getElementById('closeContainerDireita');
-const buttonAlterItem = document.getElementById('buttonAlterItem');
-const buttonDelItem = document.getElementById('buttonDelItem');
-const buttonItemAgree = document.getElementById('buttonItemAgree');
-const buttonItemDegree = document.getElementById('buttonItemDegree');
+const itemPesquisadoBtnClose = document.getElementById('itemPesquisadoBtnClose');
+const itemPesquisadoBtnAlter = document.getElementById('itemPesquisadoBtnAlter');
+const itemPesquisadoBtnExcluir = document.getElementById('itemPesquisadoBtnExcluir');
+const itemPesquisadoBtnAgree = document.getElementById('itemPesquisadoBtnAgree');
+const itemPesquisadoBtnDegree = document.getElementById('itemPesquisadoBtnDegree');
 
 // Campos capturáveis
 const alterarQuantidade = document.getElementById('alterarQuantidade');
@@ -19,13 +19,6 @@ let dadosTodosItens;
 // Formulários
 const formCadastro = document.getElementById('formCadastrar');
 const formPesquisar = document.getElementById('formPesquisar');
-
-document.addEventListener('DOMContentLoaded', () => {
-    closeContainerDireita.addEventListener('click', function () {
-        document.getElementById('conteudoLateral').style.display = 'none';
-        document.getElementById('itemInfo').classList.add('hidden');
-    })
-})
 
 // ================= Campo de Cadastro de item =================
 if (userFunction === 'Admin') {
@@ -151,35 +144,35 @@ document.getElementById('formPesquisar').addEventListener('submit', async functi
             document.getElementById('itemDescricao').textContent = dadosItem.descricao;
 
             if (dadosItem.imagemItem) {
-                document.getElementById('itemFoto').src = `data:image/jpeg;base64,${dadosItem.imagemItem}`;
+                document.getElementById('itemPesquisadoFoto').src = `data:image/jpeg;base64,${dadosItem.imagemItem}`;
             } else {
-                document.getElementById('itemFoto').alt = "Imagem não disponível";
+                document.getElementById('itemPesquisadoFoto').alt = "Imagem não disponível";
             }
 
-            document.getElementById('buttonAddItem').style.display = 'inline';
+            document.getElementById('itemPesquisadoBtnAdd').style.display = 'inline';
 
             if (userFunction === 'Admin') {
                 // Mostrar botões para Admin
-                buttonAlterItem.style.display = 'inline';
-                buttonDelItem.style.display = 'inline';
+                itemPesquisadoBtnAlter.style.display = 'inline';
+                itemPesquisadoBtnExcluir.style.display = 'inline';
 
                 // Função para ocultar mensagem e botões de confirmação
                 function hideMessageAndButtons() {
-                    messageBtItens.style.display = 'none';
-                    buttonItemAgree.style.display = 'none';
-                    buttonItemDegree.style.display = 'none';
+                    itemPesquisadoMsg.style.display = 'none';
+                    itemPesquisadoBtnAgree.style.display = 'none';
+                    itemPesquisadoBtnDegree.style.display = 'none';
                     alterarQuantidade.style.display = 'none';
                     alterarDescricao.style.display = 'none';
                 }
                 
                 // ====================== Evento para deletar item ======================
-                buttonDelItem.addEventListener('click', () => {
-                    showMessageBtItens("Essa ação é irreversível. Deseja excluir o item?", 'alert');
-                    buttonItemAgree.style.display = 'inline';
-                    buttonItemDegree.style.display = 'inline';
+                itemPesquisadoBtnExcluir.addEventListener('click', () => {
+                    showItemPesquisadoMsg("Essa ação é irreversível. Deseja excluir o item?", 'alert');
+                    itemPesquisadoBtnAgree.style.display = 'inline';
+                    itemPesquisadoBtnDegree.style.display = 'inline';
 
                     // Confirmar exclusão
-                    buttonItemAgree.addEventListener('click', async () => {
+                    itemPesquisadoBtnAgree.addEventListener('click', async () => {
                         try {
                             if (inProducao === "S") {
                                 responseGetItem = await fetch(`https://siscontrol-fdfhghebapc5cvbh.brazilsouth-01.azurewebsites.net/api/ItemCadastro/${encodeURIComponent(dadosItem.idItem)}`, {
@@ -198,12 +191,12 @@ document.getElementById('formPesquisar').addEventListener('submit', async functi
                             }
 
                             if (response.ok) {
-                                showMessageBtItens('Item excluído com sucesso!', 'success');
+                                showItemPesquisadoMsg('Item excluído com sucesso!', 'success');
                             } else {
-                                showMessageBtItens('Erro ao excluir o item.', 'error');
+                                showItemPesquisadoMsg('Erro ao excluir o item.', 'error');
                             }
                         } catch (error) {
-                            showMessageBtItens('Erro ao excluir o item.', 'error');
+                            showItemPesquisadoMsg('Erro ao excluir o item.', 'error');
                             console.error('Erro ao deletar item:', error);
                         } finally {
                             setTimeout(() => {
@@ -214,20 +207,20 @@ document.getElementById('formPesquisar').addEventListener('submit', async functi
                     });
 
                     // Cancelar exclusão
-                    buttonItemDegree.addEventListener('click', hideMessageAndButtons);
+                    itemPesquisadoBtnDegree.addEventListener('click', hideMessageAndButtons);
                 });
 
                 // ================== Evento para Alterar dados de um item ===================
-                buttonAlterItem.addEventListener('click', () => {
-                    showMessageBtItens("Informe o que deseja alterar e depois confirme a alteração", 'default');
-                    buttonItemAgree.style.display = 'inline';
-                    buttonItemDegree.style.display = 'inline';
+                itemPesquisadoBtnAlter.addEventListener('click', () => {
+                    showItemPesquisadoMsg("Informe o que deseja alterar e depois confirme a alteração", 'default');
+                    itemPesquisadoBtnAgree.style.display = 'inline';
+                    itemPesquisadoBtnDegree.style.display = 'inline';
                     alterarQuantidade.style.display = 'inline';
                     alterarDescricao.style.display = 'inline';
 
                     // Confirmar Alteração
-                    buttonItemAgree.addEventListener('click', async () => {
-                        buttonItemAgree.disabled = true;
+                    itemPesquisadoBtnAgree.addEventListener('click', async () => {
+                        itemPesquisadoBtnAgree.disabled = true;
                         let responsePutItem;
                         let qtAlteracao =  document.getElementById('alterarQuantidade').value;
                         let dsAlteracao = document.getElementById('alterarDescricao').value;
@@ -268,15 +261,15 @@ document.getElementById('formPesquisar').addEventListener('submit', async functi
                             }
 
                             if (responsePutItem.status == 204) {
-                                showMessageBtItens('Dados do item alterado com sucesso!', 'success');
+                                showItemPesquisadoMsg('Dados do item alterado com sucesso!', 'success');
                             } else {
-                                showMessageBtItens('Erro ao alterar dados o item.', 'error');
+                                showItemPesquisadoMsg('Erro ao alterar dados o item.', 'error');
                             }
                         } catch (error) {
-                            showMessageBtItens('Erro ao alterar dados do item.', 'error');
+                            showItemPesquisadoMsg('Erro ao alterar dados do item.', 'error');
                             console.error('Erro ao alterar item:', error);
                         } finally {
-                            buttonItemAgree.disabled = false;
+                            itemPesquisadoBtnAgree.disabled = false;
                             setTimeout(() => {
                                 hideMessageAndButtons();
                                 window.location.reload();
@@ -285,16 +278,17 @@ document.getElementById('formPesquisar').addEventListener('submit', async functi
                     });
                     
                     // Cancelar exclusão
-                    buttonItemDegree.addEventListener('click', hideMessageAndButtons);
+                    itemPesquisadoBtnDegree.addEventListener('click', hideMessageAndButtons);
                 });
             }
             // Exibe o conteúdo lateral
-            document.getElementById('conteudoLateral').style.display = 'block';
-            document.getElementById('itemInfo').classList.remove('hidden');
+            document.getElementById('itemPesquisado').style.display = 'block';
+            document.getElementById('itemPesquisadoInfo').classList.remove('hidden');
         }
     }
     catch (error) {
         // Caso item não seja encontrado
+        console.log(error)
         showMessagePesq('Erro ao pesquisar item.', 'error')
     }
 })

@@ -12,7 +12,7 @@ meusPedidos.addEventListener('click', function () {
         formSolicitar.style.display = 'none';
         formUsuarios.style.display = 'none';
         document.getElementById('userInfo').classList.add('hidden');
-        document.getElementById('itemResumeContainer').style.display = 'none';
+        document.getElementById('resumeEstoque').style.display = 'none';
 
         CreateMeusPedidosResume();
     } else {
